@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqyyetjooogp4"]
+
+[ext_resource type="PackedScene" uid="uid://balrjlygdjcri" path="res://player/player.tscn" id="1_p70n2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a1ye8"]
+size = Vector2(25, 329)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3cdg"]
+size = Vector2(25, 524.5)
+
+[node name="Carriage" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_p70n2")]
+position = Vector2(99, 33)
+disable_mode = 2
+
+[node name="Seats" type="Node" parent="."]
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="WallLeft" type="StaticBody2D" parent="Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallLeft"]
+position = Vector2(12.5, 164.5)
+shape = SubResource("RectangleShape2D_a1ye8")
+
+[node name="WallTop" type="StaticBody2D" parent="Walls"]
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallTop"]
+position = Vector2(-13, -261.75)
+shape = SubResource("RectangleShape2D_t3cdg")
+
+[node name="WallBottom" type="StaticBody2D" parent="Walls"]
+position = Vector2(0, 354)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallBottom"]
+position = Vector2(-13, -261.75)
+shape = SubResource("RectangleShape2D_t3cdg")
+
+[node name="WallRight" type="StaticBody2D" parent="Walls"]
+position = Vector2(500, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallRight"]
+position = Vector2(12.5, 164.5)
+shape = SubResource("RectangleShape2D_a1ye8")
