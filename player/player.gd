@@ -26,10 +26,8 @@ func _physics_process(delta):
 
 	if input != Vector2.ZERO:
 		velocity = velocity.move_toward(input * move_speed, move_acceleration * delta)
+		animatedSprite.flip_h = input.x > 0
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, move_friction * delta)
-
-	if input.length() > 0 :
-		animatedSprite.flip_h = input.x > 0
 
 	move_and_slide()
