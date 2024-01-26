@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://7mwe3233ahmm"]
+
+[ext_resource type="Texture2D" uid="uid://j78urhaxcl15" path="res://train/gfx/seat.png" id="1_127eo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ybncw"]
+size = Vector2(129, 201)
+
+[node name="Seat" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_127eo")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(71.5, 165.5)
+shape = SubResource("RectangleShape2D_ybncw")

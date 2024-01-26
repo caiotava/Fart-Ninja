@@ -1,47 +1,76 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqyyetjooogp4"]
+[gd_scene load_steps=7 format=3 uid="uid://cqyyetjooogp4"]
 
+[ext_resource type="Texture2D" uid="uid://dnj2moaxf38cm" path="res://train/gfx/carriage-background.png" id="1_gikla"]
 [ext_resource type="PackedScene" uid="uid://balrjlygdjcri" path="res://player/player.tscn" id="1_p70n2"]
+[ext_resource type="Texture2D" uid="uid://bujp7ixacet6g" path="res://train/gfx/wall-bottom.png" id="3_4fhyg"]
+[ext_resource type="PackedScene" uid="uid://7mwe3233ahmm" path="res://train/seat.tscn" id="3_msw65"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1ye8"]
-size = Vector2(25, 329)
+size = Vector2(25, 1080)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t3cdg"]
-size = Vector2(25, 524.5)
+size = Vector2(25, 1920)
 
 [node name="Carriage" type="Node2D"]
 
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_gikla")
+centered = false
+
 [node name="Player" parent="." instance=ExtResource("1_p70n2")]
-position = Vector2(99, 33)
+z_index = 1
+y_sort_enabled = true
+position = Vector2(458, 554)
 disable_mode = 2
 
-[node name="Seats" type="Node" parent="."]
+[node name="Seats" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Top" type="Node" parent="Seats"]
+
+[node name="Seat" parent="Seats/Top" instance=ExtResource("3_msw65")]
+position = Vector2(393, 171)
+
+[node name="Bottom" type="Node" parent="Seats"]
+
+[node name="Seat2" parent="Seats/Bottom" instance=ExtResource("3_msw65")]
+z_index = 2
+position = Vector2(409, 722)
 
 [node name="Walls" type="Node" parent="."]
 
 [node name="WallLeft" type="StaticBody2D" parent="Walls"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallLeft"]
-position = Vector2(12.5, 164.5)
+position = Vector2(236.5, 540)
 shape = SubResource("RectangleShape2D_a1ye8")
 
 [node name="WallTop" type="StaticBody2D" parent="Walls"]
 rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallTop"]
-position = Vector2(-13, -261.75)
-shape = SubResource("RectangleShape2D_t3cdg")
-
-[node name="WallBottom" type="StaticBody2D" parent="Walls"]
-position = Vector2(0, 354)
-rotation = 1.5708
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallBottom"]
-position = Vector2(-13, -261.75)
+position = Vector2(284, -977.001)
 shape = SubResource("RectangleShape2D_t3cdg")
 
 [node name="WallRight" type="StaticBody2D" parent="Walls"]
-position = Vector2(500, 0)
+position = Vector2(1920, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallRight"]
-position = Vector2(12.5, 164.5)
+position = Vector2(-51.5, 540)
 shape = SubResource("RectangleShape2D_a1ye8")
+
+[node name="WallBottom" type="Node" parent="Walls"]
+
+[node name="CollisionBody" type="StaticBody2D" parent="Walls/WallBottom"]
+position = Vector2(0, 1080)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallBottom/CollisionBody"]
+position = Vector2(-63.0026, -975.75)
+shape = SubResource("RectangleShape2D_t3cdg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/WallBottom"]
+z_index = 4
+position = Vector2(252, 816)
+texture = ExtResource("3_4fhyg")
+centered = false
