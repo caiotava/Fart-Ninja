@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://3f8jh0gi3o8f"]
+
+[ext_resource type="Texture2D" uid="uid://bcuw6nirqf45t" path="res://passengers/gfx/passenger-02-01.png" id="1_47qxd"]
+[ext_resource type="Texture2D" uid="uid://b3v1jcg62n62y" path="res://passengers/gfx/passenger-02-02.png" id="2_3dy3q"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_47qxd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3dy3q")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]

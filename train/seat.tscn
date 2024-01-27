@@ -14,3 +14,6 @@ centered = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(71.5, 165.5)
 shape = SubResource("RectangleShape2D_ybncw")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+vertices = PackedVector2Array(-1.255, 2, 54, 0, 54, 61, 133, 63, 135, 266, 3, 265)

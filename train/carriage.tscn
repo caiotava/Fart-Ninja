@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqyyetjooogp4"]
+[gd_scene load_steps=10 format=3 uid="uid://cqyyetjooogp4"]
 
+[ext_resource type="Script" path="res://train/carriage.gd" id="1_ee3qt"]
 [ext_resource type="Texture2D" uid="uid://dnj2moaxf38cm" path="res://train/gfx/carriage-background.png" id="1_gikla"]
 [ext_resource type="PackedScene" uid="uid://balrjlygdjcri" path="res://player/player.tscn" id="1_p70n2"]
 [ext_resource type="Texture2D" uid="uid://bujp7ixacet6g" path="res://train/gfx/wall-bottom.png" id="3_4fhyg"]
 [ext_resource type="PackedScene" uid="uid://7mwe3233ahmm" path="res://train/seat.tscn" id="3_msw65"]
+[ext_resource type="PackedScene" uid="uid://bcih6li88g6a" path="res://passengers/passenger.tscn" id="5_f8p45"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1ye8"]
 size = Vector2(25, 1080)
@@ -11,17 +13,19 @@ size = Vector2(25, 1080)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t3cdg"]
 size = Vector2(25, 1920)
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_gub6n"]
+vertices = PackedVector2Array(406, 791, 406, 1009, 262, 1005, 258, 314, 382, 446, 543, 446, 541, 310, 1852, 317, 1847, 1031, 562, 789, 382, 312, 566, 1002)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 9), PackedInt32Array(3, 10, 4), PackedInt32Array(0, 4, 5, 9), PackedInt32Array(9, 8, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(253, 297, 392, 302, 450, 300, 491, 300, 531, 300, 1849, 300, 1857, 1042, 555, 1023, 523, 1020, 493, 1020, 416, 1020, 253, 1015)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
 [node name="Carriage" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_ee3qt")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("1_gikla")
 centered = false
-
-[node name="Player" parent="." instance=ExtResource("1_p70n2")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(458, 554)
-disable_mode = 2
 
 [node name="Seats" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -35,7 +39,7 @@ position = Vector2(393, 171)
 
 [node name="Seat2" parent="Seats/Bottom" instance=ExtResource("3_msw65")]
 z_index = 2
-position = Vector2(409, 722)
+position = Vector2(409, 741)
 
 [node name="Walls" type="Node" parent="."]
 
@@ -66,7 +70,7 @@ position = Vector2(0, 1080)
 rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallBottom/CollisionBody"]
-position = Vector2(-63.0026, -975.75)
+position = Vector2(-48.0026, -975.75)
 shape = SubResource("RectangleShape2D_t3cdg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Walls/WallBottom"]
@@ -74,3 +78,19 @@ z_index = 4
 position = Vector2(252, 816)
 texture = ExtResource("3_4fhyg")
 centered = false
+
+[node name="Passengers" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" parent="Passengers" instance=ExtResource("1_p70n2")]
+position = Vector2(582, 556)
+disable_mode = 2
+
+[node name="Passenger" parent="Passengers" instance=ExtResource("5_f8p45")]
+position = Vector2(1698, 384)
+
+[node name="Passenger2" parent="Passengers" instance=ExtResource("5_f8p45")]
+position = Vector2(1064, 576)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Passengers"]
+navigation_polygon = SubResource("NavigationPolygon_gub6n")
