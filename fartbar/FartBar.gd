@@ -26,12 +26,16 @@ func _input(event):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	# if last pressed key is more than 200 ms ago
+	# wait for first key press
+	if not keep_last_pressed:
+		return
+	# if full release then wait will 100%
 	if full_release:
 		value += full_release_increase
 		do_fart.emit()
 		if value == 100:
 			full_release = false
+	# if last pressed key is more than 200 ms ago
 	elif keep_last_pressed and Time.get_ticks_msec() - keep_last_pressed > 200:
 		value += release_increase
 		do_fart.emit()
