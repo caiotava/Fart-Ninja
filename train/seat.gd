@@ -1,10 +1,11 @@
 extends StaticBody2D
 class_name Seat
 
-@export var is_available : bool = false
+@export var is_availables : bool = false
 @export var available_spaces : Array[Passenger] = [null, null]
 
 @onready var spaces_positions : Node = $SpacesPositions
+@onready var position_to_take_a_seat : Marker2D = $PositionToTakeASeat
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -42,3 +43,20 @@ func take_a_seat(p : Passenger) -> bool:
 	p.set_sitting(true)
 
 	return true
+
+func is_passenger_on_seat(p : Passenger) -> bool:
+	for s in available_spaces:
+		if s == p:
+			return true
+
+	return false
+
+func leave_the_seat(p : Passenger):
+	for i in len(available_spaces):
+		if available_spaces[i] != p:
+			continue
+
+		available_spaces[i] = null
+
+func get_position_to_take_a_seat() -> Vector2:
+	return position_to_take_a_seat.global_position

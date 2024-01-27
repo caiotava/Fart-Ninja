@@ -7,7 +7,7 @@
 radius = 3.0
 height = 14.0
 
-[node name="Passenger" type="CharacterBody2D"]
+[node name="Passenger" type="CharacterBody2D" groups=["passengers"]]
 z_index = 1
 y_sort_enabled = true
 scale = Vector2(6, 6)
@@ -25,7 +25,11 @@ shape = SubResource("CapsuleShape2D_vb5ac")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
-[node name="Timer" type="Timer" parent="."]
+[node name="TimerWalking" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="TimerStandUp" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="TimerWalking" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TimerStandUp" to="." method="_on_timer_stand_up_timeout"]

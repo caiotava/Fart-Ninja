@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ybncw"]
 size = Vector2(129, 201)
 
-[node name="Seat" type="StaticBody2D"]
+[node name="Seat" type="StaticBody2D" groups=["seats"]]
 script = ExtResource("1_bme2g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -28,4 +28,8 @@ gizmo_extents = 38.0
 
 [node name="Position2" type="Marker2D" parent="SpacesPositions"]
 position = Vector2(115, 176)
+gizmo_extents = 38.0
+
+[node name="PositionToTakeASeat" type="Marker2D" parent="."]
+position = Vector2(218, 159)
 gizmo_extents = 38.0
