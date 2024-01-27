@@ -2,10 +2,12 @@ extends CharacterBody2D
 
 @export var animation_resource : Resource = null
 
+var default_path_length : Array[Vector2] = [Vector2(300, 230), Vector2(1800, 920)]
+
 @export_group("Movement")
 @export var movement_speed: float = 200.0
 @export var movement_target_position: Vector2 = Vector2(60.0,180.0)
-@export var movement_path_length : float = 1920
+@export var movement_path_length : Array[Vector2] = default_path_length
 @export var is_paused : bool = false
 @export var pause_time_limit : float = 1.5
 @export var pause_likelihood : float = 0.2
@@ -47,11 +49,10 @@ func _physics_process(delta):
 
 	velocity = current_agent_position.direction_to(next_path_position) * movement_speed
 	animation_sprite.play("walking")
-	
+
 	# has collision
 	if move_and_slide():
-		is_paused = true
-		animation_sprite.stop()
+		pause_movement()
 
 func _process(delta):
 	process_pause(delta)
@@ -64,7 +65,11 @@ func process_pause(delta):
 		timer.start()
 
 func get_random_position():
-	return Vector2(randf_range(300, 1800), randf_range(230, 920))
+	var bounds = movement_path_length
+	if bounds.size() < 2:
+		bounds = default_path_length
+
+	return Vector2(randf_range(bounds[0].x, bounds[1].x), randf_range(bounds[0].y, bounds[1].y))
 
 func handle_pause():
 	if is_paused:
@@ -72,8 +77,12 @@ func handle_pause():
 
 	var rand_number = randf_range(0, 1)
 	if rand_number < pause_likelihood:
-		is_paused = true
-		animation_sprite.stop()
+		pause_movement()
+
+func pause_movement():
+	is_paused = true
+	velocity = Vector2.ZERO
+	animation_sprite.play("idle")
 
 func _on_timer_timeout():
 	is_paused = false;
