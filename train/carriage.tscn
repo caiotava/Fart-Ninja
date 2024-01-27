@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqyyetjooogp4"]
+[gd_scene load_steps=12 format=3 uid="uid://cqyyetjooogp4"]
 
 [ext_resource type="Script" path="res://train/carriage.gd" id="1_ee3qt"]
 [ext_resource type="Texture2D" uid="uid://dnj2moaxf38cm" path="res://train/gfx/carriage-background.png" id="1_gikla"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bujp7ixacet6g" path="res://train/gfx/wall-bottom.png" id="3_4fhyg"]
 [ext_resource type="PackedScene" uid="uid://7mwe3233ahmm" path="res://train/seat.tscn" id="3_msw65"]
 [ext_resource type="PackedScene" uid="uid://bcih6li88g6a" path="res://passengers/passenger.tscn" id="5_f8p45"]
+[ext_resource type="SpriteFrames" uid="uid://3f8jh0gi3o8f" path="res://passengers/animations/passenger-02.tres" id="7_b8775"]
+[ext_resource type="SpriteFrames" uid="uid://g7udik6y4bs1" path="res://passengers/animations/passenger-03.tres" id="8_lrlhv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1ye8"]
 size = Vector2(25, 1080)
@@ -91,6 +93,22 @@ position = Vector2(1698, 384)
 
 [node name="Passenger2" parent="Passengers" instance=ExtResource("5_f8p45")]
 position = Vector2(1064, 576)
+animation_resource = ExtResource("7_b8775")
+
+[node name="Passenger3" parent="Passengers" instance=ExtResource("5_f8p45")]
+position = Vector2(1064, 576)
+
+[node name="Passenger4" parent="Passengers" instance=ExtResource("5_f8p45")]
+position = Vector2(1064, 576)
+animation_resource = ExtResource("8_lrlhv")
+
+[node name="Passenger5" parent="Passengers" instance=ExtResource("5_f8p45")]
+position = Vector2(1064, 576)
+animation_resource = ExtResource("7_b8775")
+
+[node name="Passenger6" parent="Passengers" instance=ExtResource("5_f8p45")]
+position = Vector2(1064, 576)
+animation_resource = ExtResource("8_lrlhv")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Passengers"]
 navigation_polygon = SubResource("NavigationPolygon_gub6n")

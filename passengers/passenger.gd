@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var animation_resource : Resource = null
+
 @export_group("Movement")
 @export var movement_speed: float = 200.0
 @export var movement_target_position: Vector2 = Vector2(60.0,180.0)
@@ -13,6 +15,9 @@ extends CharacterBody2D
 @onready var timer : Timer = $Timer
 
 func _ready():
+	if animation_resource != null:
+		animation_sprite.sprite_frames = animation_resource
+
 	# These values need to be adjusted for the actor's speed
 	# and the navigation layout.
 	navigation_agent.path_desired_distance = 4.0

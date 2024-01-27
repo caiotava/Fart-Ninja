@@ -11,6 +11,7 @@ height = 14.0
 z_index = 1
 y_sort_enabled = true
 scale = Vector2(6, 6)
+platform_floor_layers = 4294967040
 script = ExtResource("1_nd8ur")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
