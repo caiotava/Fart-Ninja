@@ -10,3 +10,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func _on_fart_body_entered(body : Node2D):
+	if !body.is_in_group("passengers"):
+		return
+
+	body.enter_alert_mode()
+	pass # Replace with function body.

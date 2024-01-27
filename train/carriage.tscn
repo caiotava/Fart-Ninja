@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cqyyetjooogp4"]
+[gd_scene load_steps=17 format=3 uid="uid://cqyyetjooogp4"]
 
 [ext_resource type="Script" path="res://train/carriage.gd" id="1_ee3qt"]
 [ext_resource type="Texture2D" uid="uid://dnj2moaxf38cm" path="res://train/gfx/carriage-background.png" id="1_gikla"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cockhud0gvijs" path="res://fart/puff.png" id="6_xp01f"]
 [ext_resource type="Script" path="res://fart/Farticles.gd" id="7_3dqj2"]
 [ext_resource type="PackedScene" uid="uid://c75bqy1boy2j0" path="res://fartbar/fartbar.tscn" id="8_1o8v0"]
+[ext_resource type="SpriteFrames" uid="uid://g7udik6y4bs1" path="res://passengers/animations/passenger-03.tres" id="8_lrlhv"]
 [ext_resource type="Script" path="res://fart/Fart.gd" id="8_ujyyp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1ye8"]
@@ -42,14 +43,16 @@ y_sort_enabled = true
 
 [node name="Top" type="Node" parent="Seats"]
 
-[node name="Seat" parent="Seats/Top" instance=ExtResource("3_msw65")]
+[node name="Seat" parent="Seats/Top" node_paths=PackedStringArray("available_spaces") instance=ExtResource("3_msw65")]
 position = Vector2(393, 171)
+available_spaces = [NodePath("../../../Passengers/Passenger7"), NodePath("../../../Passengers/Passenger8")]
 
 [node name="Bottom" type="Node" parent="Seats"]
 
-[node name="Seat2" parent="Seats/Bottom" instance=ExtResource("3_msw65")]
+[node name="Seat2" parent="Seats/Bottom" node_paths=PackedStringArray("available_spaces") instance=ExtResource("3_msw65")]
 z_index = 2
 position = Vector2(409, 741)
+available_spaces = [null, null]
 
 [node name="Walls" type="Node" parent="."]
 
@@ -94,7 +97,7 @@ y_sort_enabled = true
 
 [node name="Player" parent="Passengers" instance=ExtResource("1_p70n2")]
 z_index = 10
-position = Vector2(582, 556)
+position = Vector2(1461, 628)
 disable_mode = 2
 move_speed = 100.0
 move_acceleration = 100.0
@@ -151,6 +154,15 @@ position = Vector2(1064, 576)
 
 [node name="Passenger6" parent="Passengers" instance=ExtResource("5_f8p45")]
 position = Vector2(1064, 576)
+[node name="Passenger7" parent="Passengers" instance=ExtResource("5_f8p45")]
+position = Vector2(1064, 576)
+animation_resource = ExtResource("8_lrlhv")
+can_stand_up = true
+
+[node name="Passenger8" parent="Passengers" instance=ExtResource("5_f8p45")]
+position = Vector2(1064, 576)
+animation_resource = ExtResource("8_lrlhv")
+can_stand_up = true
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Passengers"]
 position = Vector2(1, 0)
@@ -164,7 +176,7 @@ offset_bottom = 994.0
 fill_mode = 3
 
 [connection signal="area_entered" from="Passengers/Player/Farticles/Fart" to="Passengers/Player/Farticles/Fart" method="_on_area_entered"]
-[connection signal="body_entered" from="Passengers/Player/Farticles/Fart" to="Passengers/Player/Farticles/Fart" method="_on_body_entered"]
+[connection signal="body_entered" from="Passengers/Player/Farticles/Fart" to="." method="_on_fart_body_entered"]
 [connection signal="do_fart" from="FartBar" to="Passengers/Player/Farticles" method="_on_do_fart"]
 
 [editable path="Passengers/Player"]

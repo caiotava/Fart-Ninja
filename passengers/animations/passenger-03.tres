@@ -16,6 +16,14 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_oq07s")
+}],
+"loop": true,
+"name": &"sitting",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_oq07s")
 }, {
 "duration": 1.0,
 "texture": ExtResource("2_j41rh")

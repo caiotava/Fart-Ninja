@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://7mwe3233ahmm"]
+[gd_scene load_steps=4 format=3 uid="uid://7mwe3233ahmm"]
 
 [ext_resource type="Texture2D" uid="uid://j78urhaxcl15" path="res://train/gfx/seat.png" id="1_127eo"]
+[ext_resource type="Script" path="res://train/seat.gd" id="1_bme2g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ybncw"]
 size = Vector2(129, 201)
 
-[node name="Seat" type="StaticBody2D"]
+[node name="Seat" type="StaticBody2D" groups=["seats"]]
+script = ExtResource("1_bme2g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_127eo")
@@ -17,3 +19,17 @@ shape = SubResource("RectangleShape2D_ybncw")
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 vertices = PackedVector2Array(-1.255, 2, 54, 0, 54, 61, 133, 63, 135, 266, 3, 265)
+
+[node name="SpacesPositions" type="Node2D" parent="."]
+
+[node name="Position1" type="Marker2D" parent="SpacesPositions"]
+position = Vector2(115, 74)
+gizmo_extents = 38.0
+
+[node name="Position2" type="Marker2D" parent="SpacesPositions"]
+position = Vector2(115, 176)
+gizmo_extents = 38.0
+
+[node name="PositionToTakeASeat" type="Marker2D" parent="."]
+position = Vector2(218, 159)
+gizmo_extents = 38.0
