@@ -14,14 +14,19 @@ var default_path_length : Array[Vector2] = [Vector2(300, 230), Vector2(1800, 920
 @export var pause_likelihood : float = 0.1
 @export var can_stand_up : bool = false
 @export var stand_up_time : float = 1.5
+@export var game_over_time: float = 2.0
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var animation_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var timer_walking : Timer = $TimerWalking
 @onready var timer_stand_up : Timer = $TimerStandUp
+@onready var timer_game_over: Timer = $TimerGameOver
 
 var is_sitting = false;
 var nearest_seat : Seat = null
+var alert_timestamp = null
+
+signal game_over
 
 func _ready():
 	if is_sitting:
@@ -36,6 +41,7 @@ func _ready():
 	navigation_agent.target_desired_distance = 4.0
 	timer_walking.wait_time = pause_time_limit
 	timer_stand_up.wait_time = stand_up_time
+	timer_game_over.wait_time = game_over_time
 
 	# Make sure to not await during _ready.
 	call_deferred("actor_setup")
@@ -119,8 +125,12 @@ func set_sitting_animation():
 	animation_sprite.play("sitting")
 
 func enter_alert_mode():
+	timer_game_over.start()
 	if can_stand_up && is_sitting:
 		timer_stand_up.start()
+
+func exit_alert_mode():
+	timer_game_over.stop()
 
 func _on_timer_stand_up_timeout():
 	nearest_seat = null
@@ -145,3 +155,8 @@ func _on_timer_stand_up_timeout():
 		current_seat.leave_the_seat(self)
 		global_position = current_seat.get_position_to_take_a_seat()
 		set_movement_target(nearest_seat.get_position_to_take_a_seat())
+
+
+func _on_timer_game_over_timeout():
+	print ("Game Over")
+	game_over.emit()

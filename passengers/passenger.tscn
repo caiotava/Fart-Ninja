@@ -31,5 +31,9 @@ one_shot = true
 [node name="TimerStandUp" type="Timer" parent="."]
 one_shot = true
 
+[node name="TimerGameOver" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="timeout" from="TimerWalking" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="TimerStandUp" to="." method="_on_timer_stand_up_timeout"]
+[connection signal="timeout" from="TimerGameOver" to="." method="_on_timer_game_over_timeout"]

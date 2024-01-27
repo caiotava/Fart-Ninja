@@ -11,8 +11,10 @@ func _process(delta):
 	pass
 
 func _on_fart_body_entered(body : Node2D):
-	if !body.is_in_group("passengers"):
-		return
+	if body.is_in_group("passengers"):
+		body.enter_alert_mode()
 
-	body.enter_alert_mode()
-	pass # Replace with function body.
+
+func _on_fart_body_exited(body):
+	if body.is_in_group("passengers"):
+		body.exit_alert_mode()

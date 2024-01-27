@@ -228,6 +228,7 @@ fill_mode = 3
 
 [connection signal="area_entered" from="Passengers/Player/Farticles/Fart" to="Passengers/Player/Farticles/Fart" method="_on_area_entered"]
 [connection signal="body_entered" from="Passengers/Player/Farticles/Fart" to="." method="_on_fart_body_entered"]
+[connection signal="body_exited" from="Passengers/Player/Farticles/Fart" to="." method="_on_fart_body_exited"]
 [connection signal="do_fart" from="FartBar" to="Passengers/Player/Farticles" method="_on_do_fart"]
 
 [editable path="Passengers/Player"]
