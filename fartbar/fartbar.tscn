@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c75bqy1boy2j0"]
+
+[ext_resource type="Script" path="res://fartbar/FartBar.gd" id="1_ba7i4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jy6n"]
+bg_color = Color(0.819608, 0.529412, 0.00392157, 1)
+
+[node name="FartBar" type="ProgressBar"]
+offset_left = -419.0
+offset_top = -181.0
+offset_right = -338.0
+offset_bottom = 710.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/fill = SubResource("StyleBoxFlat_2jy6n")
+value = 100.0
+script = ExtResource("1_ba7i4")
