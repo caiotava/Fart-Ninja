@@ -1,7 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://cqyyetjooogp4"]
+[gd_scene load_steps=16 format=3 uid="uid://cqyyetjooogp4"]
 
 [ext_resource type="Script" path="res://train/carriage.gd" id="1_ee3qt"]
-[ext_resource type="Texture2D" uid="uid://dnj2moaxf38cm" path="res://train/gfx/carriage-background.png" id="1_gikla"]
 [ext_resource type="PackedScene" uid="uid://balrjlygdjcri" path="res://player/player.tscn" id="1_p70n2"]
 [ext_resource type="Texture2D" uid="uid://cignifkxdf4vu" path="res://train/gfx/train-atlas.png" id="3_eke27"]
 [ext_resource type="PackedScene" uid="uid://7mwe3233ahmm" path="res://train/seat.tscn" id="3_msw65"]
@@ -33,23 +32,13 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 [node name="Carriage" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_ee3qt")
-
-[node name="Background" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("1_gikla")
-centered = false
+paralax_speed = 200.0
 
 [node name="CarriageBackground" type="Node2D" parent="."]
 position = Vector2(160, 0)
 
-[node name="BackgroundTrain" type="Sprite2D" parent="CarriageBackground"]
-position = Vector2(139, 84)
-texture = ExtResource("3_eke27")
-centered = false
-region_enabled = true
-region_rect = Rect2(231, 4212, 1776, 933)
-
 [node name="CarriageBackgroundLeft" type="Sprite2D" parent="CarriageBackground"]
+visibility_layer = 63
 position = Vector2(255, 135)
 texture = ExtResource("3_eke27")
 centered = false
@@ -57,6 +46,7 @@ region_enabled = true
 region_rect = Rect2(162, 866, 546, 757)
 
 [node name="CarriageBackgroundMiddle" type="Sprite2D" parent="CarriageBackground"]
+visibility_layer = 63
 position = Vector2(801, 135)
 texture = ExtResource("3_eke27")
 centered = false
@@ -64,6 +54,7 @@ region_enabled = true
 region_rect = Rect2(783, 864, 416, 757)
 
 [node name="CarriageBackgroundRight" type="Sprite2D" parent="CarriageBackground"]
+visibility_layer = 63
 position = Vector2(1217, 135)
 texture = ExtResource("3_eke27")
 centered = false
@@ -97,6 +88,14 @@ centered = false
 region_enabled = true
 region_rect = Rect2(1222, 3540, 540, 294)
 
+[node name="BackgroundParalax" type="Sprite2D" parent="CarriageBackground"]
+z_index = -1
+texture_repeat = 3
+position = Vector2(1021, 260)
+texture = ExtResource("3_eke27")
+region_enabled = true
+region_rect = Rect2(0, 308, 1250, 157)
+
 [node name="Collisions" type="Node2D" parent="CarriageBackground"]
 
 [node name="WallLeft" type="StaticBody2D" parent="CarriageBackground/Collisions"]
@@ -127,16 +126,63 @@ rotation = 1.5708
 position = Vector2(-37.0036, -998)
 shape = SubResource("RectangleShape2D_t3cdg")
 
+[node name="Wheel" type="Node2D" parent="CarriageBackground"]
+
+[node name="WeelLeft" type="Sprite2D" parent="CarriageBackground/Wheel"]
+position = Vector2(594, 953)
+texture = ExtResource("3_eke27")
+region_enabled = true
+region_rect = Rect2(259, 3943, 384, 161)
+
+[node name="WeelMiddle" type="Sprite2D" parent="CarriageBackground/Wheel"]
+position = Vector2(1003, 953)
+texture = ExtResource("3_eke27")
+region_enabled = true
+region_rect = Rect2(785, 3943, 337, 103)
+
+[node name="WeelRight" type="Sprite2D" parent="CarriageBackground/Wheel"]
+position = Vector2(1437, 953)
+texture = ExtResource("3_eke27")
+region_enabled = true
+region_rect = Rect2(1246, 3943, 384, 161)
+
+[node name="Windows" type="Node2D" parent="CarriageBackground"]
+z_index = 20
+
+[node name="WindowLeft" type="Sprite2D" parent="CarriageBackground/Windows"]
+z_index = 20
+position = Vector2(588.5, 779)
+scale = Vector2(1.03495, 1.04)
+texture = ExtResource("3_eke27")
+region_enabled = true
+region_rect = Rect2(628, 570, 372, 150)
+
+[node name="WindowMiddle" type="Sprite2D" parent="CarriageBackground/Windows"]
+z_index = 20
+position = Vector2(1005.5, 779)
+scale = Vector2(1.04032, 1.04)
+texture = ExtResource("3_eke27")
+region_enabled = true
+region_rect = Rect2(1119, 574, 372, 150)
+
+[node name="WindowRight" type="Sprite2D" parent="CarriageBackground/Windows"]
+z_index = 20
+position = Vector2(1426.5, 779)
+scale = Vector2(1.03495, 1.04)
+texture = ExtResource("3_eke27")
+region_enabled = true
+region_rect = Rect2(1576, 574, 372, 150)
+
 [node name="Seats" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="Top" type="Node" parent="Seats"]
+[node name="Top" type="Node2D" parent="Seats"]
 
 [node name="Seat" parent="Seats/Top" node_paths=PackedStringArray("available_spaces") instance=ExtResource("3_msw65")]
 position = Vector2(604, 248)
 available_spaces = [NodePath("../../../Passengers/Passenger7"), NodePath("../../../Passengers/Passenger8")]
 
-[node name="Bottom" type="Node" parent="Seats"]
+[node name="Bottom" type="Node2D" parent="Seats"]
 
 [node name="Seat2" parent="Seats/Bottom" node_paths=PackedStringArray("available_spaces") instance=ExtResource("3_msw65")]
 z_index = 2
@@ -225,6 +271,25 @@ offset_top = 328.0
 offset_right = 171.0
 offset_bottom = 994.0
 fill_mode = 3
+
+[node name="BackgroundColor" type="CanvasLayer" parent="."]
+layer = -2
+
+[node name="BackgroundColor" type="Sprite2D" parent="BackgroundColor"]
+z_index = -3
+position = Vector2(1041.5, 674.5)
+scale = Vector2(8.34387, 12.2411)
+texture = ExtResource("3_eke27")
+region_enabled = true
+region_rect = Rect2(288, 1716, 253, 112)
+
+[node name="BackgroundTrain" type="Sprite2D" parent="BackgroundColor"]
+z_index = -3
+position = Vector2(299, 116)
+texture = ExtResource("3_eke27")
+centered = false
+region_enabled = true
+region_rect = Rect2(231, 4212, 1776, 933)
 
 [connection signal="area_entered" from="Passengers/Player/Farticles/Fart" to="Passengers/Player/Farticles/Fart" method="_on_area_entered"]
 [connection signal="body_entered" from="Passengers/Player/Farticles/Fart" to="." method="_on_fart_body_entered"]
