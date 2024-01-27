@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsgolhwducaqn"]
+
+[ext_resource type="Texture2D" uid="uid://cignifkxdf4vu" path="res://train/gfx/train-atlas.png" id="1_80suw"]
+
+[node name="Train" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_80suw")
+centered = false
+region_enabled = true
+region_rect = Rect2(-0.834656, 308.125, 1920.93, 157.291)

@@ -1,6 +1,5 @@
 extends Node2D
 
-@onready var navigation_region : NavigationRegion2D = $NavigationRegion2D
 @onready var passengers : Node = $Passengers
 
 # Called when the node enters the scene tree for the first time.

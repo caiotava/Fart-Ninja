@@ -87,8 +87,8 @@ func handle_pause():
 	if is_paused:
 		return
 
-	#if nearest_seat != null:
-		#nearest_seat.take_a_seat(self)
+	if nearest_seat != null:
+		nearest_seat.take_a_seat(self)
 
 	var rand_number = randf_range(0, 1)
 	if rand_number < pause_likelihood:
