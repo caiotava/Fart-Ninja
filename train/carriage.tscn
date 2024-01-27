@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cqyyetjooogp4"]
+[gd_scene load_steps=20 format=3 uid="uid://cqyyetjooogp4"]
 
 [ext_resource type="Script" path="res://train/carriage.gd" id="1_ee3qt"]
 [ext_resource type="PackedScene" uid="uid://balrjlygdjcri" path="res://player/player.tscn" id="1_p70n2"]
@@ -11,6 +11,8 @@
 [ext_resource type="SpriteFrames" uid="uid://g7udik6y4bs1" path="res://passengers/animations/passenger-03.tres" id="8_lrlhv"]
 [ext_resource type="Script" path="res://fart/Fart.gd" id="8_ujyyp"]
 [ext_resource type="AudioStream" uid="uid://dgfdwu2jqww06" path="res://audio/spy_soundtrack.wav" id="11_6welp"]
+[ext_resource type="AudioStream" uid="uid://7l411kjf3mjl" path="res://audio/balloon_pop.ogg" id="11_opkk2"]
+[ext_resource type="AudioStream" uid="uid://csxgbnokyrmeb" path="res://audio/balloon_rub_creak.mp3" id="12_2gwwf"]
 [ext_resource type="Script" path="res://audio/Soundtrack.gd" id="12_x25r8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1ye8"]
@@ -273,6 +275,14 @@ offset_top = 328.0
 offset_right = 171.0
 offset_bottom = 994.0
 fill_mode = 3
+
+[node name="FullReleasePop" type="AudioStreamPlayer2D" parent="FartBar"]
+stream = ExtResource("11_opkk2")
+volume_db = 5.0
+
+[node name="Decrease" type="AudioStreamPlayer2D" parent="FartBar"]
+stream = ExtResource("12_2gwwf")
+volume_db = 5.0
 
 [node name="BackgroundColor" type="CanvasLayer" parent="."]
 layer = -2

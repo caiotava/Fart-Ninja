@@ -39,8 +39,14 @@ func _process(delta):
 	elif keep_last_pressed and Time.get_ticks_msec() - keep_last_pressed > 200:
 		value += release_increase
 		do_fart.emit()
+		if $Decrease.playing:
+			$Decrease.stop()
 		#value_hist = [value]
 	else:
+		if not $Decrease.playing:
+			$Decrease.play()
+		#if not $Decrease1.playing and not $Decrease2.playing:
+			#[$Decrease1, $Decrease2][randi_range(0, 1)].play()
 		# reduce the progress bar value by 0.1 every frame
 		value -= const_descrease
 		#value_hist.append(value)
@@ -48,4 +54,5 @@ func _process(delta):
 
 	if value == 0:
 		full_release = true
+		$FullReleasePop.play()
 		
