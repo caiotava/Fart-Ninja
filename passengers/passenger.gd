@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Passenger
 
 @export var animation_resource : Resource = null
 
@@ -10,13 +11,18 @@ var default_path_length : Array[Vector2] = [Vector2(300, 230), Vector2(1800, 920
 @export var movement_path_length : Array[Vector2] = default_path_length
 @export var is_paused : bool = false
 @export var pause_time_limit : float = 1.5
-@export var pause_likelihood : float = 0.2
+@export var pause_likelihood : float = 0.1
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var animation_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var timer : Timer = $Timer
 
+var is_sitting = false;
+
 func _ready():
+	if is_sitting:
+		set_sitting_animation()
+
 	if animation_resource != null:
 		animation_sprite.sprite_frames = animation_resource
 
@@ -40,6 +46,12 @@ func set_movement_target(movement_target: Vector2):
 	navigation_agent.target_position = movement_target
 
 func _physics_process(delta):
+	if is_sitting:
+		return
+
+	physics_process_movement(delta)
+
+func physics_process_movement(delta):
 	if navigation_agent.is_navigation_finished():
 		handle_pause()
 		return
@@ -53,16 +65,6 @@ func _physics_process(delta):
 	# has collision
 	if move_and_slide():
 		pause_movement()
-
-func _process(delta):
-	process_pause(delta)
-
-func process_pause(delta):
-	if !is_paused:
-		return
-
-	if timer.is_stopped():
-		timer.start()
 
 func get_random_position():
 	var bounds = movement_path_length
@@ -84,6 +86,20 @@ func pause_movement():
 	velocity = Vector2.ZERO
 	animation_sprite.play("idle")
 
+	if timer.is_stopped() && pause_time_limit > 0:
+		timer.start()
+
 func _on_timer_timeout():
 	is_paused = false;
 	set_movement_target(get_random_position())
+
+func set_sitting(is_sitting : bool, seat : Seat = null):
+	self.is_sitting = is_sitting
+	set_sitting_animation()
+
+func set_sitting_animation():
+	if animation_sprite == null:
+		return
+
+	animation_sprite.flip_h = true
+	animation_sprite.play("sitting")
