@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cqyyetjooogp4"]
+[gd_scene load_steps=16 format=3 uid="uid://cqyyetjooogp4"]
 
 [ext_resource type="Script" path="res://train/carriage.gd" id="1_ee3qt"]
 [ext_resource type="Texture2D" uid="uid://dnj2moaxf38cm" path="res://train/gfx/carriage-background.png" id="1_gikla"]
@@ -10,8 +10,6 @@
 [ext_resource type="Script" path="res://fart/Farticles.gd" id="7_3dqj2"]
 [ext_resource type="PackedScene" uid="uid://c75bqy1boy2j0" path="res://fartbar/fartbar.tscn" id="8_1o8v0"]
 [ext_resource type="Script" path="res://fart/Fart.gd" id="8_ujyyp"]
-[ext_resource type="SpriteFrames" uid="uid://3f8jh0gi3o8f" path="res://passengers/animations/passenger-02.tres" id="7_b8775"]
-[ext_resource type="SpriteFrames" uid="uid://g7udik6y4bs1" path="res://passengers/animations/passenger-03.tres" id="8_lrlhv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1ye8"]
 size = Vector2(25, 1080)
@@ -98,16 +96,18 @@ y_sort_enabled = true
 z_index = 10
 position = Vector2(582, 556)
 disable_mode = 2
+move_speed = 100.0
+move_acceleration = 100.0
 
 [node name="Farticles" type="CPUParticles2D" parent="Passengers/Player"]
 z_index = -1
-position = Vector2(0.0999985, 0)
+position = Vector2(0.200001, 0)
 amount = 500
 lifetime = 3.0
 preprocess = 3.0
 texture = ExtResource("6_xp01f")
 emission_shape = 1
-emission_sphere_radius = 10.0
+emission_sphere_radius = 5.0
 direction = Vector2(1, 1)
 spread = 180.0
 gravity = Vector2(0, 0)
@@ -128,31 +128,32 @@ script = ExtResource("8_ujyyp")
 
 [node name="FartCollider" type="CollisionShape2D" parent="Passengers/Player/Farticles/Fart"]
 shape = SubResource("CircleShape2D_s2l13")
+disabled = true
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="Passenger" parent="Passengers" instance=ExtResource("5_f8p45")]
-position = Vector2(1698, 384)
+position = Vector2(871, 236)
+
+[node name="CollisionShape2D" parent="Passengers/Passenger" index="1"]
+debug_color = Color(1, 0.6, 0.701961, 0.419608)
 
 [node name="Passenger2" parent="Passengers" instance=ExtResource("5_f8p45")]
 position = Vector2(1064, 576)
-animation_resource = ExtResource("7_b8775")
 
 [node name="Passenger3" parent="Passengers" instance=ExtResource("5_f8p45")]
 position = Vector2(1064, 576)
 
 [node name="Passenger4" parent="Passengers" instance=ExtResource("5_f8p45")]
 position = Vector2(1064, 576)
-animation_resource = ExtResource("8_lrlhv")
 
 [node name="Passenger5" parent="Passengers" instance=ExtResource("5_f8p45")]
 position = Vector2(1064, 576)
-animation_resource = ExtResource("7_b8775")
 
 [node name="Passenger6" parent="Passengers" instance=ExtResource("5_f8p45")]
 position = Vector2(1064, 576)
-animation_resource = ExtResource("8_lrlhv")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Passengers"]
+position = Vector2(1, 0)
 navigation_polygon = SubResource("NavigationPolygon_gub6n")
 
 [node name="FartBar" parent="." instance=ExtResource("8_1o8v0")]
@@ -163,4 +164,8 @@ offset_bottom = 994.0
 fill_mode = 3
 
 [connection signal="area_entered" from="Passengers/Player/Farticles/Fart" to="Passengers/Player/Farticles/Fart" method="_on_area_entered"]
+[connection signal="body_entered" from="Passengers/Player/Farticles/Fart" to="Passengers/Player/Farticles/Fart" method="_on_body_entered"]
 [connection signal="do_fart" from="FartBar" to="Passengers/Player/Farticles" method="_on_do_fart"]
+
+[editable path="Passengers/Player"]
+[editable path="Passengers/Passenger"]
