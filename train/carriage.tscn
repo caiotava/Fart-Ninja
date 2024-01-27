@@ -1,23 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://cqyyetjooogp4"]
+[gd_scene load_steps=13 format=3 uid="uid://3k0hjwkw483j"]
 
 [ext_resource type="Script" path="res://train/carriage.gd" id="1_ee3qt"]
 [ext_resource type="PackedScene" uid="uid://balrjlygdjcri" path="res://player/player.tscn" id="1_p70n2"]
 [ext_resource type="Texture2D" uid="uid://cignifkxdf4vu" path="res://train/gfx/train-atlas.png" id="3_eke27"]
-[ext_resource type="PackedScene" uid="uid://7mwe3233ahmm" path="res://train/seat.tscn" id="3_msw65"]
-[ext_resource type="PackedScene" uid="uid://bcih6li88g6a" path="res://passengers/passenger.tscn" id="5_f8p45"]
 [ext_resource type="Texture2D" uid="uid://cockhud0gvijs" path="res://fart/puff.png" id="6_xp01f"]
 [ext_resource type="Script" path="res://fart/Farticles.gd" id="7_3dqj2"]
 [ext_resource type="PackedScene" uid="uid://c75bqy1boy2j0" path="res://fartbar/fartbar.tscn" id="8_1o8v0"]
-[ext_resource type="SpriteFrames" uid="uid://g7udik6y4bs1" path="res://passengers/animations/passenger-03.tres" id="8_lrlhv"]
+[ext_resource type="PackedScene" uid="uid://c7aw5vl1g0kgp" path="res://train/carriage_base.tscn" id="8_6txxr"]
 [ext_resource type="Script" path="res://fart/Fart.gd" id="8_ujyyp"]
 [ext_resource type="AudioStream" uid="uid://dgfdwu2jqww06" path="res://audio/spy_soundtrack.wav" id="11_6welp"]
 [ext_resource type="Script" path="res://audio/Soundtrack.gd" id="12_x25r8"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a1ye8"]
-size = Vector2(53, 521)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3cdg"]
-size = Vector2(50.0053, 1466)
 
 [sub_resource type="Gradient" id="Gradient_h02mm"]
 colors = PackedColorArray(0.941176, 0.65098, 0.45098, 0.803922, 1, 0.905882, 0.709804, 0)
@@ -25,183 +17,18 @@ colors = PackedColorArray(0.941176, 0.65098, 0.45098, 0.803922, 1, 0.905882, 0.7
 [sub_resource type="CircleShape2D" id="CircleShape2D_s2l13"]
 radius = 30.0
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_gub6n"]
-vertices = PackedVector2Array(406, 791, 406, 1009, 262, 1005, 258, 314, 382, 446, 543, 446, 541, 310, 1852, 317, 1847, 1031, 562, 789, 382, 312, 566, 1002)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 9), PackedInt32Array(3, 10, 4), PackedInt32Array(0, 4, 5, 9), PackedInt32Array(9, 8, 11)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(277, 500, 324, 466, 409, 462, 414, 592, 526, 590, 526, 455, 1628, 457, 1691, 502, 1693, 998, 542, 994, 519, 760, 411, 760, 418, 996, 266, 1003)])
-source_geometry_group_name = &"navigation_polygon_source_group"
-
 [node name="Carriage" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_ee3qt")
-paralax_speed = 200.0
 
-[node name="CarriageBackground" type="Node2D" parent="."]
-position = Vector2(160, 0)
-
-[node name="CarriageBackgroundLeft" type="Sprite2D" parent="CarriageBackground"]
-visibility_layer = 63
-position = Vector2(255, 135)
-texture = ExtResource("3_eke27")
-centered = false
-region_enabled = true
-region_rect = Rect2(162, 866, 546, 757)
-
-[node name="CarriageBackgroundMiddle" type="Sprite2D" parent="CarriageBackground"]
-visibility_layer = 63
-position = Vector2(801, 135)
-texture = ExtResource("3_eke27")
-centered = false
-region_enabled = true
-region_rect = Rect2(783, 864, 416, 757)
-
-[node name="CarriageBackgroundRight" type="Sprite2D" parent="CarriageBackground"]
-visibility_layer = 63
-position = Vector2(1217, 135)
-texture = ExtResource("3_eke27")
-centered = false
-region_enabled = true
-region_rect = Rect2(1222, 861, 540, 757)
-
-[node name="WallBottomLeft" type="Sprite2D" parent="CarriageBackground"]
-visibility_layer = 2
-z_index = 20
-position = Vector2(252, 616)
-texture = ExtResource("3_eke27")
-centered = false
-region_enabled = true
-region_rect = Rect2(159, 3545, 549, 294)
-
-[node name="WallBottomMiddle" type="Sprite2D" parent="CarriageBackground"]
-visibility_layer = 2
-z_index = 20
-position = Vector2(801, 655)
-texture = ExtResource("3_eke27")
-centered = false
-region_enabled = true
-region_rect = Rect2(783, 3582, 416, 255)
-
-[node name="WallBottomRight" type="Sprite2D" parent="CarriageBackground"]
-visibility_layer = 2
-z_index = 20
-position = Vector2(1217, 616)
-texture = ExtResource("3_eke27")
-centered = false
-region_enabled = true
-region_rect = Rect2(1222, 3540, 540, 294)
-
-[node name="BackgroundParalax" type="Sprite2D" parent="CarriageBackground"]
-z_index = -1
-texture_repeat = 3
-position = Vector2(1021, 260)
-texture = ExtResource("3_eke27")
-region_enabled = true
-region_rect = Rect2(0, 308, 1250, 157)
-
-[node name="Collisions" type="Node2D" parent="CarriageBackground"]
-
-[node name="WallLeft" type="StaticBody2D" parent="CarriageBackground/Collisions"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CarriageBackground/Collisions/WallLeft"]
-position = Vector2(271.5, 607.5)
-shape = SubResource("RectangleShape2D_a1ye8")
-
-[node name="WallTop" type="StaticBody2D" parent="CarriageBackground/Collisions"]
-rotation = 1.5708
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CarriageBackground/Collisions/WallTop"]
-position = Vector2(322.996, -972.001)
-shape = SubResource("RectangleShape2D_t3cdg")
-
-[node name="WallRight" type="StaticBody2D" parent="CarriageBackground/Collisions"]
-position = Vector2(1920, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CarriageBackground/Collisions/WallRight"]
-position = Vector2(-188.5, 540)
-shape = SubResource("RectangleShape2D_a1ye8")
-
-[node name="WallBottom" type="StaticBody2D" parent="CarriageBackground/Collisions"]
-position = Vector2(0, 920)
-rotation = 1.5708
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CarriageBackground/Collisions/WallBottom"]
-position = Vector2(-37.0036, -998)
-shape = SubResource("RectangleShape2D_t3cdg")
-
-[node name="Wheel" type="Node2D" parent="CarriageBackground"]
-
-[node name="WeelLeft" type="Sprite2D" parent="CarriageBackground/Wheel"]
-position = Vector2(594, 953)
-texture = ExtResource("3_eke27")
-region_enabled = true
-region_rect = Rect2(259, 3943, 384, 161)
-
-[node name="WeelMiddle" type="Sprite2D" parent="CarriageBackground/Wheel"]
-position = Vector2(1003, 953)
-texture = ExtResource("3_eke27")
-region_enabled = true
-region_rect = Rect2(785, 3943, 337, 103)
-
-[node name="WeelRight" type="Sprite2D" parent="CarriageBackground/Wheel"]
-position = Vector2(1437, 953)
-texture = ExtResource("3_eke27")
-region_enabled = true
-region_rect = Rect2(1246, 3943, 384, 161)
-
-[node name="Windows" type="Node2D" parent="CarriageBackground"]
-z_index = 20
-
-[node name="WindowLeft" type="Sprite2D" parent="CarriageBackground/Windows"]
-z_index = 20
-position = Vector2(588.5, 779)
-scale = Vector2(1.03495, 1.04)
-texture = ExtResource("3_eke27")
-region_enabled = true
-region_rect = Rect2(628, 570, 372, 150)
-
-[node name="WindowMiddle" type="Sprite2D" parent="CarriageBackground/Windows"]
-z_index = 20
-position = Vector2(1005.5, 779)
-scale = Vector2(1.04032, 1.04)
-texture = ExtResource("3_eke27")
-region_enabled = true
-region_rect = Rect2(1119, 574, 372, 150)
-
-[node name="WindowRight" type="Sprite2D" parent="CarriageBackground/Windows"]
-z_index = 20
-position = Vector2(1426.5, 779)
-scale = Vector2(1.03495, 1.04)
-texture = ExtResource("3_eke27")
-region_enabled = true
-region_rect = Rect2(1576, 574, 372, 150)
-
-[node name="Seats" type="Node2D" parent="."]
-y_sort_enabled = true
-
-[node name="Top" type="Node2D" parent="Seats"]
-
-[node name="Seat" parent="Seats/Top" node_paths=PackedStringArray("available_spaces") instance=ExtResource("3_msw65")]
-position = Vector2(604, 248)
-available_spaces = [NodePath("../../../Passengers/Passenger7"), NodePath("../../../Passengers/Passenger8")]
-
-[node name="Bottom" type="Node2D" parent="Seats"]
-
-[node name="Seat2" parent="Seats/Bottom" node_paths=PackedStringArray("available_spaces") instance=ExtResource("3_msw65")]
-z_index = 2
-position = Vector2(604, 616)
-available_spaces = [null, null]
-
-[node name="Passengers" type="Node2D" parent="."]
-y_sort_enabled = true
-
-[node name="Player" parent="Passengers" instance=ExtResource("1_p70n2")]
+[node name="Player" parent="." instance=ExtResource("1_p70n2")]
 z_index = 10
 position = Vector2(1461, 628)
 disable_mode = 2
 move_speed = 100.0
 move_acceleration = 100.0
 
-[node name="Farticles" type="CPUParticles2D" parent="Passengers/Player"]
+[node name="Farticles" type="CPUParticles2D" parent="Player"]
 z_index = -1
 position = Vector2(0.200001, 0)
 amount = 500
@@ -225,47 +52,12 @@ anim_speed_max = 1.0
 anim_offset_max = 1.0
 script = ExtResource("7_3dqj2")
 
-[node name="Fart" type="Area2D" parent="Passengers/Player/Farticles"]
+[node name="Fart" type="Area2D" parent="Player/Farticles"]
 script = ExtResource("8_ujyyp")
 
-[node name="FartCollider" type="CollisionShape2D" parent="Passengers/Player/Farticles/Fart"]
+[node name="FartCollider" type="CollisionShape2D" parent="Player/Farticles/Fart"]
 shape = SubResource("CircleShape2D_s2l13")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
-
-[node name="Passenger" parent="Passengers" instance=ExtResource("5_f8p45")]
-position = Vector2(1057, 420)
-
-[node name="CollisionShape2D" parent="Passengers/Passenger" index="1"]
-debug_color = Color(1, 0.6, 0.701961, 0.419608)
-
-[node name="Passenger2" parent="Passengers" instance=ExtResource("5_f8p45")]
-position = Vector2(1064, 576)
-
-[node name="Passenger3" parent="Passengers" instance=ExtResource("5_f8p45")]
-position = Vector2(1064, 576)
-
-[node name="Passenger4" parent="Passengers" instance=ExtResource("5_f8p45")]
-position = Vector2(1064, 576)
-
-[node name="Passenger5" parent="Passengers" instance=ExtResource("5_f8p45")]
-position = Vector2(1064, 576)
-
-[node name="Passenger6" parent="Passengers" instance=ExtResource("5_f8p45")]
-position = Vector2(1064, 576)
-
-[node name="Passenger7" parent="Passengers" instance=ExtResource("5_f8p45")]
-position = Vector2(1064, 576)
-animation_resource = ExtResource("8_lrlhv")
-can_stand_up = true
-
-[node name="Passenger8" parent="Passengers" instance=ExtResource("5_f8p45")]
-position = Vector2(1064, 576)
-animation_resource = ExtResource("8_lrlhv")
-can_stand_up = true
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Passengers"]
-position = Vector2(185, -108)
-navigation_polygon = SubResource("NavigationPolygon_gub6n")
 
 [node name="FartBar" parent="." instance=ExtResource("8_1o8v0")]
 offset_left = 89.0
@@ -298,11 +90,12 @@ stream = ExtResource("11_6welp")
 autoplay = true
 script = ExtResource("12_x25r8")
 
-[connection signal="area_entered" from="Passengers/Player/Farticles/Fart" to="Passengers/Player/Farticles/Fart" method="_on_area_entered"]
-[connection signal="body_entered" from="Passengers/Player/Farticles/Fart" to="." method="_on_fart_body_entered"]
-[connection signal="body_exited" from="Passengers/Player/Farticles/Fart" to="." method="_on_fart_body_exited"]
-[connection signal="do_fart" from="FartBar" to="Passengers/Player/Farticles" method="_on_do_fart"]
+[node name="Carriage" parent="." instance=ExtResource("8_6txxr")]
+
+[connection signal="area_entered" from="Player/Farticles/Fart" to="Player/Farticles/Fart" method="_on_area_entered"]
+[connection signal="body_entered" from="Player/Farticles/Fart" to="." method="_on_fart_body_entered"]
+[connection signal="body_exited" from="Player/Farticles/Fart" to="." method="_on_fart_body_exited"]
+[connection signal="do_fart" from="FartBar" to="Player/Farticles" method="_on_do_fart"]
 [connection signal="finished" from="Soundtrack" to="Soundtrack" method="_on_finished"]
 
-[editable path="Passengers/Player"]
-[editable path="Passengers/Passenger"]
+[editable path="Player"]
