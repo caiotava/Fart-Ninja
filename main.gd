@@ -14,6 +14,7 @@ func _process(delta):
 func _on_passenger_game_over():
 	$GameOver.visible = true
 	$Carriage.visible = false
+	$Carriage/Soundtrack.playing = false
 
 
 func _on_retry_pressed():

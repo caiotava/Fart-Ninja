@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cqyyetjooogp4"]
+[gd_scene load_steps=18 format=3 uid="uid://cqyyetjooogp4"]
 
 [ext_resource type="Script" path="res://train/carriage.gd" id="1_ee3qt"]
 [ext_resource type="PackedScene" uid="uid://balrjlygdjcri" path="res://player/player.tscn" id="1_p70n2"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://c75bqy1boy2j0" path="res://fartbar/fartbar.tscn" id="8_1o8v0"]
 [ext_resource type="SpriteFrames" uid="uid://g7udik6y4bs1" path="res://passengers/animations/passenger-03.tres" id="8_lrlhv"]
 [ext_resource type="Script" path="res://fart/Fart.gd" id="8_ujyyp"]
+[ext_resource type="AudioStream" uid="uid://dgfdwu2jqww06" path="res://audio/spy_soundtrack.wav" id="11_6welp"]
+[ext_resource type="Script" path="res://audio/Soundtrack.gd" id="12_x25r8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1ye8"]
 size = Vector2(53, 521)
@@ -291,10 +293,16 @@ centered = false
 region_enabled = true
 region_rect = Rect2(231, 4212, 1776, 933)
 
+[node name="Soundtrack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_6welp")
+autoplay = true
+script = ExtResource("12_x25r8")
+
 [connection signal="area_entered" from="Passengers/Player/Farticles/Fart" to="Passengers/Player/Farticles/Fart" method="_on_area_entered"]
 [connection signal="body_entered" from="Passengers/Player/Farticles/Fart" to="." method="_on_fart_body_entered"]
 [connection signal="body_exited" from="Passengers/Player/Farticles/Fart" to="." method="_on_fart_body_exited"]
 [connection signal="do_fart" from="FartBar" to="Passengers/Player/Farticles" method="_on_do_fart"]
+[connection signal="finished" from="Soundtrack" to="Soundtrack" method="_on_finished"]
 
 [editable path="Passengers/Player"]
 [editable path="Passengers/Passenger"]
