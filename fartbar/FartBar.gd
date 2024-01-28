@@ -4,6 +4,9 @@ extends ProgressBar
 @export var const_descrease = 0.25
 @export var release_increase = 0.1
 @export var full_release_increase = 0.5
+@export var player : Player = null
+
+
 #@export var limit = 10
 #var value_hist = []
 var keep_last_pressed
@@ -13,6 +16,8 @@ var full_release_sound_position;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	assert(player != null, "we must have player related to fartbar")
+	
 	pass
 
 func _input(event):
@@ -36,31 +41,34 @@ func _process(delta):
 		do_fart.emit()
 		if value == 100:
 			full_release = false
+		player.animation_name = "walking_fart"
 	# if last pressed key is more than 200 ms ago
 	elif keep_last_pressed and Time.get_ticks_msec() - keep_last_pressed > 200:
 		value += release_increase
 		do_fart.emit()
-		if $Decrease.playing:
-			$Decrease.stop()
-		if not $FullReleaseIncrease.playing:
-			$FullReleaseIncrease.play()
-			if full_release_sound_position:
-				$FullReleaseIncrease.seek(full_release_sound_position)
+		player.animation_name = "walking_fart"
+		#if $Decrease.playing:
+			#$Decrease.stop()
+		#if not $FullReleaseIncrease.playing:
+			#$FullReleaseIncrease.play()
+			#if full_release_sound_position:
+				#$FullReleaseIncrease.seek(full_release_sound_position)
 		#if not $Fart.playing:
 			#$Fart.play()
 		#value_hist = [value]
 	else:
-		if $FullReleaseIncrease.playing:
-			full_release_sound_position = $FullReleaseIncrease.get_playback_position()
-			$FullReleaseIncrease.stop()
-		if $Fart.playing:
-			$Fart.stop()
+		#if $FullReleaseIncrease.playing:
+			#full_release_sound_position = $FullReleaseIncrease.get_playback_position()
+			#$FullReleaseIncrease.stop()
+		#if $Fart.playing:
+			#$Fart.stop()
 		if not $Decrease.playing:
 			$Decrease.play()
 		#if not $Decrease1.playing and not $Decrease2.playing:
 			#[$Decrease1, $Decrease2][randi_range(0, 1)].play()
 		# reduce the progress bar value by 0.1 every frame
 		value -= const_descrease
+		player.animation_name = "walking"
 		#value_hist.append(value)
 		#value_hist = value_hist.slice(max(value_hist.size()-limit, 0), value_hist.size())
 
@@ -68,4 +76,3 @@ func _process(delta):
 		full_release = true
 		$FullReleasePop.play()
 		$FullReleaseIncrease.play()
-		

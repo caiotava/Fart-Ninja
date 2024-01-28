@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @export_group("Movement")
 @export var move_speed : float = 220
@@ -7,6 +8,8 @@ extends CharacterBody2D
 
 @onready var animatedSprite = $AnimatedSprite2D
 
+var animation_name = "walking"
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -14,7 +17,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if velocity != Vector2.ZERO:
-		animatedSprite.play()
+		animatedSprite.play(animation_name)
 	else:
 		animatedSprite.pause()
 
@@ -26,7 +29,7 @@ func _physics_process(delta):
 
 	if input != Vector2.ZERO:
 		velocity = velocity.move_toward(input * move_speed, move_acceleration * delta)
-		animatedSprite.flip_h = input.x > 0
+		animatedSprite.flip_h = input.x < 0
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, move_friction * delta)
 
