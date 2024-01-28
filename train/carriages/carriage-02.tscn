@@ -22,8 +22,9 @@ available_spaces = [null, null]
 position = Vector2(819, 248)
 available_spaces = [null, null]
 
-[node name="Seat3" parent="Seats/Top" index="2" instance=ExtResource("3_8rjta")]
+[node name="Seat3" parent="Seats/Top" index="2" node_paths=PackedStringArray("available_spaces") instance=ExtResource("3_8rjta")]
 position = Vector2(1064, 247)
+available_spaces = [null]
 
 [node name="Seat" parent="Seats/Bottom" index="0" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_631d8")]
 z_index = 1

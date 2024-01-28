@@ -16,15 +16,14 @@ var default_sitting_position : Vector2 = Vector2(71.429, -171.429)
 @export var pause_time_limit : float = 1.5
 @export var pause_likelihood : float = 0.1
 @export var can_stand_up : bool = false
-@export var stand_up_time : float = 1.5
-@export var game_over_time: float = 2.0
 @export var inverte_flip: bool = false
 
 @export_group("Alert Timers")
 @export var alert_question_time: float = 1.2
 @export var alert_exclamation_time: float = 1.3
-@export var alert_angry_time: float = 1.5
 @export var alert_gameover_time: float = 2
+@export var game_over_time: float = 2.0
+@export var stand_up_time : float = 1.5
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var animation_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -59,6 +58,8 @@ func _ready():
 	timer_walking.wait_time = pause_time_limit
 	timer_stand_up.wait_time = stand_up_time
 	timer_game_over.wait_time = game_over_time
+	timer_alert_question.wait_time = alert_question_time
+	timer_alert_exclamation.wait_time = alert_exclamation_time
 
 	# Make sure to not await during _ready.
 	call_deferred("actor_setup")
