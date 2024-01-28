@@ -17,8 +17,6 @@ var full_release_sound_position;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	assert(player != null, "we must have player related to fartbar")
-	
-	pass
 
 func _input(event):
 	# activate fart for any input at the beginning of the game

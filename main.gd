@@ -15,6 +15,7 @@ func _process(delta):
 	
 func _on_passenger_game_over():
 	$GameOver.visible = true
+	#$Victory.visible = true
 	#$Carriage.visible = false
 	#$Carriage/Soundtrack.playing = false
 	$Carriage.queue_free()
