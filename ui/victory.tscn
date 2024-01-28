@@ -17,19 +17,30 @@ script = ExtResource("1_gvgkk")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 749.0
-offset_top = 365.0
-offset_right = 2289.0
-offset_bottom = 1108.0
+offset_left = 295.0
+offset_top = 167.0
+offset_right = 1835.0
+offset_bottom = 910.0
 theme_override_font_sizes/normal_font_size = 200
-text = "Victory!"
+bbcode_enabled = true
+text = "[center] Victory! [/center]"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 307.0
+offset_top = 441.0
+offset_right = 1847.0
+offset_bottom = 1184.0
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "[center] Your restraint is legendary! The whole train thanks you! [/center]"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 852.0
+offset_left = 772.0
 offset_top = 720.0
-offset_right = 1481.0
-offset_bottom = 855.0
+offset_right = 1401.0
+offset_bottom = 865.0
 theme_override_font_sizes/font_size = 100
 text = "Retry"
 

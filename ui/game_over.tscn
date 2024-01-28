@@ -17,19 +17,29 @@ script = ExtResource("1_877qr")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 521.0
-offset_top = 346.0
-offset_right = 2061.0
-offset_bottom = 1089.0
+offset_left = 509.0
+offset_top = 106.0
+offset_right = 2049.0
+offset_bottom = 849.0
 theme_override_font_sizes/normal_font_size = 200
 text = "Game Over!"
 
+[node name="Subtitle" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 294.0
+offset_top = 387.0
+offset_right = 1834.0
+offset_bottom = 1130.0
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "Subtitle"
+
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 852.0
-offset_top = 720.0
-offset_right = 1481.0
-offset_bottom = 855.0
+offset_left = 769.0
+offset_top = 711.0
+offset_right = 1398.0
+offset_bottom = 856.0
 theme_override_font_sizes/font_size = 100
 text = "Retry"
 
