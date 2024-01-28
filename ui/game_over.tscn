@@ -32,10 +32,13 @@ text = "Game Over!"
 
 [node name="Subtitle" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 296.0
-offset_top = 756.0
-offset_right = 1836.0
-offset_bottom = 1499.0
+offset_left = 297.0
+offset_top = 774.0
+offset_right = 1837.0
+offset_bottom = 1517.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
 theme_override_font_sizes/normal_font_size = 70
 bbcode_enabled = true
 text = "Subtitle"

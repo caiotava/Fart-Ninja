@@ -36,9 +36,6 @@ y_sort_enabled = true
 scale = Vector2(0.28, 0.28)
 platform_floor_layers = 4294967040
 script = ExtResource("1_nd8ur")
-alert_question_time = 0.3
-alert_exclamation_time = 0.3
-alert_gameover_time = 0.5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(21.4286, -378.571)
