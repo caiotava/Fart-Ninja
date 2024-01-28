@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bcih6li88g6a" path="res://passengers/passenger.tscn" id="3_nl3fb"]
 [ext_resource type="SpriteFrames" uid="uid://g7udik6y4bs1" path="res://passengers/animations/passenger-03.tres" id="5_n6u1b"]
 [ext_resource type="SpriteFrames" uid="uid://3f8jh0gi3o8f" path="res://passengers/animations/passenger-02.tres" id="6_666n3"]
-[ext_resource type="SpriteFrames" uid="uid://r8jtnpq54hjq" path="res://passengers/animations/train-ward.tres" id="7_8dck6"]
+[ext_resource type="SpriteFrames" uid="uid://bn1ivb25xwjrg" path="res://passengers/animations/train-ward.tres" id="7_8dck6"]
 
 [node name="Carriage" instance=ExtResource("1_qrijo")]
 

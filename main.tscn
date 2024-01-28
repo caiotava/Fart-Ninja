@@ -44,12 +44,18 @@ offset_top = -105.0
 offset_right = -102.0
 offset_bottom = -105.0
 
+[node name="Sprite2D" parent="GameOver" index="0"]
+position = Vector2(1062, 645)
+
 [node name="Victory" parent="." instance=ExtResource("4_stte0")]
 visible = false
 offset_left = -127.0
 offset_top = -103.0
 offset_right = -127.0
 offset_bottom = -103.0
+
+[node name="Sprite2D" parent="Victory" index="0"]
+position = Vector2(1087, 643)
 
 [connection signal="pressed" from="GameOver/Button" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="Victory/Button" to="." method="_on_retry_pressed"]
