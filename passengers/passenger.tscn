@@ -1,11 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://bcih6li88g6a"]
+[gd_scene load_steps=7 format=3 uid="uid://bcih6li88g6a"]
 
 [ext_resource type="Script" path="res://passengers/passenger.gd" id="1_nd8ur"]
 [ext_resource type="SpriteFrames" uid="uid://bmeoy1t68s31s" path="res://passengers/animations/fart-police.tres" id="2_nkr8l"]
+[ext_resource type="Texture2D" uid="uid://d1tu5474hj6r8" path="res://passengers/gfx/alert-signs.png" id="3_mfuoy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vb5ac"]
 radius = 33.8571
 height = 257.143
+
+[sub_resource type="Animation" id="Animation_inkla"]
+resource_name = "alert-color-modulation"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.717647, 0.937255, 0.733333, 1), Color(0.341176, 0.596078, 0.368627, 1), Color(0.519804, 0.822851, 0.548871, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t1v7i"]
+_data = {
+"alert-color-modulation": SubResource("Animation_inkla")
+}
 
 [node name="Passenger" type="CharacterBody2D" groups=["passengers"]]
 z_index = 1
@@ -35,6 +58,32 @@ one_shot = true
 [node name="TimerGameOver" type="Timer" parent="."]
 wait_time = 2.0
 
+[node name="TimerAlertExclamation" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="TimerAlertQuestion" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="AlertSign" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+y_sort_enabled = true
+position = Vector2(67.8571, -860.714)
+scale = Vector2(2.045, 2.045)
+texture = ExtResource("3_mfuoy")
+hframes = 3
+region_rect = Rect2(662, 24, 109, 136)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+active = false
+libraries = {
+"": SubResource("AnimationLibrary_t1v7i")
+}
+
 [connection signal="timeout" from="TimerWalking" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="TimerStandUp" to="." method="_on_timer_stand_up_timeout"]
 [connection signal="timeout" from="TimerGameOver" to="." method="_on_timer_game_over_timeout"]
+[connection signal="timeout" from="TimerAlertExclamation" to="." method="_on_timer_alert_exclamation_timeout"]
+[connection signal="timeout" from="TimerAlertQuestion" to="." method="_on_timer_alert_question_timeout"]

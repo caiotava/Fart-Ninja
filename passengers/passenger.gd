@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Passenger
 
+enum ALERT_LEVEL {NONE, QUESTION, EXCLAMATION, ANGRY}
+
 var default_path_length : Array[Vector2] = [Vector2(300, 230), Vector2(1800, 920)]
 var default_sitting_position : Vector2 = Vector2(71.429, -171.429)
 
@@ -18,19 +20,32 @@ var default_sitting_position : Vector2 = Vector2(71.429, -171.429)
 @export var game_over_time: float = 2.0
 @export var inverte_flip: bool = false
 
+@export_group("Alert Timers")
+@export var alert_question_time: float = 1.2
+@export var alert_exclamation_time: float = 1.3
+@export var alert_angry_time: float = 1.5
+@export var alert_gameover_time: float = 2
+
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var animation_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var timer_walking : Timer = $TimerWalking
 @onready var timer_stand_up : Timer = $TimerStandUp
 @onready var timer_game_over: Timer = $TimerGameOver
+@onready var timer_alert_question: Timer = $TimerAlertQuestion
+@onready var timer_alert_exclamation: Timer = $TimerAlertExclamation
+@onready var alert_sign : Sprite2D = $AlertSign
+@onready var animation_player : AnimationPlayer = $AnimationPlayer
 
 var is_sitting = false;
 var nearest_seat : Seat = null
 var alert_timestamp = null
+var alert_level : ALERT_LEVEL = ALERT_LEVEL.NONE
 
 signal game_over
 
 func _ready():
+	animation_player.active = false
+	animation_sprite.modulate = Color.WHITE
 	if is_sitting:
 		set_sitting_animation()
 
@@ -80,6 +95,9 @@ func physics_process_movement(delta):
 	velocity = current_agent_position.direction_to(next_path_position) * movement_speed
 	animation_sprite.play("walking")
 
+	if velocity != Vector2.ZERO:
+		animation_sprite.flip_h = velocity.x < 0
+
 	# has collision
 	if move_and_slide():
 		pause_movement()
@@ -128,12 +146,13 @@ func set_sitting_animation():
 	animation_sprite.position = default_sitting_position
 
 func enter_alert_mode():
-	timer_game_over.start()
-	if can_stand_up && is_sitting:
-		timer_stand_up.start()
+	set_alert_level(ALERT_LEVEL.QUESTION)
+
+	if is_sitting && can_stand_up:
+			timer_stand_up.start()
 
 func exit_alert_mode():
-	timer_game_over.stop()
+	set_alert_level(ALERT_LEVEL.NONE)
 
 func _on_timer_stand_up_timeout():
 	nearest_seat = null
@@ -159,7 +178,44 @@ func _on_timer_stand_up_timeout():
 		global_position = current_seat.get_position_to_take_a_seat()
 		set_movement_target(nearest_seat.get_position_to_take_a_seat())
 
-
 func _on_timer_game_over_timeout():
 	print ("Game Over")
 	game_over.emit()
+
+func set_alert_level(level : ALERT_LEVEL):
+	alert_level = level
+
+	match alert_level:
+		ALERT_LEVEL.NONE:
+			timer_alert_question.stop()
+			timer_alert_exclamation.stop()
+			timer_game_over.stop()
+			alert_sign.visible = false
+			animation_player.stop()
+			animation_sprite.modulate = Color.WHITE
+			if is_sitting:
+				animation_sprite.play("sitting")
+		ALERT_LEVEL.QUESTION:
+			timer_alert_question.start()
+			alert_sign.visible = true
+			alert_sign.frame = 0
+			if is_sitting:
+				animation_sprite.play("sitting_question")
+		ALERT_LEVEL.EXCLAMATION:
+			timer_alert_exclamation.start()
+			alert_sign.frame = 1
+			if is_sitting:
+				animation_sprite.play("sitting_exclamation")
+		ALERT_LEVEL.ANGRY:
+			animation_player.active = true
+			animation_player.play("alert-color-modulation")
+			timer_game_over.start()
+			alert_sign.frame = 2
+			if is_sitting:
+				animation_sprite.play("sitting_angry")
+
+func _on_timer_alert_question_timeout():
+	set_alert_level(ALERT_LEVEL.EXCLAMATION)
+
+func _on_timer_alert_exclamation_timeout():
+	set_alert_level(ALERT_LEVEL.ANGRY)

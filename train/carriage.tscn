@@ -22,15 +22,17 @@ colors = PackedColorArray(0.941176, 0.65098, 0.45098, 0.803922, 1, 0.905882, 0.7
 [sub_resource type="CircleShape2D" id="CircleShape2D_s2l13"]
 radius = 30.0
 
-[node name="Carriage" type="Node2D"]
+[node name="Carriage" type="Node2D" node_paths=PackedStringArray("player", "main_carriage")]
 y_sort_enabled = true
 script = ExtResource("1_ee3qt")
-player = null
-main_carriage = null
+player = NodePath("Player")
+main_carriage = NodePath("Carriages/Carriage01")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1461, 628)
-limit_left = 200
+offset = Vector2(0, -200)
+zoom = Vector2(0.7, 0.7)
+limit_left = 0
 limit_top = 0
 limit_right = 111950
 limit_bottom = 600
@@ -87,6 +89,7 @@ layer = -2
 follow_viewport_enabled = true
 
 [node name="BackgroundColor" type="TextureRect" parent="BackgroundColor"]
+visible = false
 top_level = true
 anchors_preset = 15
 anchor_right = 1.0
@@ -97,6 +100,7 @@ scale = Vector2(8.34387, 12.2411)
 texture = ExtResource("6_y8psx")
 
 [node name="BackgroundTrain" type="TextureRect" parent="BackgroundColor"]
+visible = false
 top_level = true
 anchors_preset = 14
 anchor_top = 0.5

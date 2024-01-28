@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bcih6li88g6a" path="res://passengers/passenger.tscn" id="4_x4r72"]
 [ext_resource type="SpriteFrames" uid="uid://bmeoy1t68s31s" path="res://passengers/animations/fart-police.tres" id="5_ke1ri"]
 
-[node name="Carriage" instance=ExtResource("1_e3oj6")]
+[node name="Carriage2" instance=ExtResource("1_e3oj6")]
 
 [node name="CollisionShape2D" parent="CarriageBackground/Collisions/WallLeftDoor" index="0"]
 disabled = true
@@ -38,12 +38,12 @@ available_spaces = [null, null]
 [node name="NavigationRegion2D" parent="Passengers" index="0"]
 metadata/_edit_lock_ = true
 
-[node name="Passenger" parent="Passengers" index="1" instance=ExtResource("4_x4r72")]
+[node name="FartPolice" parent="Passengers" index="1" instance=ExtResource("4_x4r72")]
 position = Vector2(1473, 526)
 animation_resource = ExtResource("5_ke1ri")
 movement_path_length = Array[Vector2]([Vector2(2000, 230), Vector2(3600, 920)])
 
-[node name="AnimatedSprite2D" parent="Passengers/Passenger" index="0"]
+[node name="AnimatedSprite2D" parent="Passengers/FartPolice" index="0"]
 flip_h = true
 
-[editable path="Passengers/Passenger"]
+[editable path="Passengers/FartPolice"]
