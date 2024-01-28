@@ -21,6 +21,9 @@ func _ready():
 	pass
 
 func _input(event):
+	# activate fart for any input at the beginning of the game
+	if not keep_last_pressed:
+		keep_last_pressed = Time.get_ticks_msec()
 	if event is InputEventKey and event.is_action_pressed("keep") and not full_release:
 		# Increase the progress bar value
 		value += keep_increase
