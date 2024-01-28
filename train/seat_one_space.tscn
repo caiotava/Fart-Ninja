@@ -25,7 +25,7 @@ shape = SubResource("RectangleShape2D_ybncw")
 [node name="SpacesPositions" type="Node2D" parent="."]
 
 [node name="Position1" type="Marker2D" parent="SpacesPositions"]
-position = Vector2(79, 73)
+position = Vector2(98, 65)
 gizmo_extents = 38.0
 
 [node name="PositionToTakeASeat" type="Marker2D" parent="."]

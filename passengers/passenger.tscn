@@ -10,7 +10,7 @@ height = 14.0
 [node name="Passenger" type="CharacterBody2D" groups=["passengers"]]
 z_index = 1
 y_sort_enabled = true
-scale = Vector2(6, 6)
+scale = Vector2(0.28, 0.28)
 platform_floor_layers = 4294967040
 script = ExtResource("1_nd8ur")
 

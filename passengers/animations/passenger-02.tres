@@ -1,7 +1,24 @@
-[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://3f8jh0gi3o8f"]
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://3f8jh0gi3o8f"]
 
 [ext_resource type="Texture2D" uid="uid://bcuw6nirqf45t" path="res://passengers/gfx/passenger-02-01.png" id="1_47qxd"]
 [ext_resource type="Texture2D" uid="uid://b3v1jcg62n62y" path="res://passengers/gfx/passenger-02-02.png" id="2_3dy3q"]
+[ext_resource type="Texture2D" uid="uid://cr2bw6176ucy7" path="res://passengers/gfx/passenger-02.png" id="3_65ih7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8iym6"]
+atlas = ExtResource("3_65ih7")
+region = Rect2(0, 187, 480, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1bf4"]
+atlas = ExtResource("3_65ih7")
+region = Rect2(480, 187, 480, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4p3g"]
+atlas = ExtResource("3_65ih7")
+region = Rect2(960, 187, 480, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43ksx"]
+atlas = ExtResource("3_65ih7")
+region = Rect2(1440, 187, 480, 640)
 
 [resource]
 animations = [{
@@ -15,10 +32,51 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_47qxd")
+"texture": SubResource("AtlasTexture_8iym6")
 }],
 "loop": true,
 "name": &"sitting",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8iym6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1bf4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4p3g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43ksx")
+}],
+"loop": true,
+"name": &"sitting_all",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43ksx")
+}],
+"loop": true,
+"name": &"sitting_angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4p3g")
+}],
+"loop": true,
+"name": &"sitting_exclamation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1bf4")
+}],
+"loop": true,
+"name": &"sitting_question",
 "speed": 5.0
 }, {
 "frames": [{

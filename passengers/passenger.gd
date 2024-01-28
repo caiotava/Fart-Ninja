@@ -121,7 +121,7 @@ func set_sitting_animation():
 	if animation_sprite == null:
 		return
 
-	animation_sprite.flip_h = true
+	animation_sprite.flip_h = false
 	animation_sprite.play("sitting")
 
 func enter_alert_mode():

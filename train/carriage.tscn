@@ -22,9 +22,11 @@ colors = PackedColorArray(0.941176, 0.65098, 0.45098, 0.803922, 1, 0.905882, 0.7
 [sub_resource type="CircleShape2D" id="CircleShape2D_s2l13"]
 radius = 30.0
 
-[node name="Carriage" type="Node2D"]
+[node name="Carriage" type="Node2D" node_paths=PackedStringArray("player", "main_carriage")]
 y_sort_enabled = true
 script = ExtResource("1_ee3qt")
+player = NodePath("Player")
+main_carriage = NodePath("Carriages/Carriage01")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1461, 628)

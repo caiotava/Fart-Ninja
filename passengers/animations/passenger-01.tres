@@ -1,7 +1,24 @@
-[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://cgppy5hs3l4fs"]
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://cgppy5hs3l4fs"]
 
 [ext_resource type="Texture2D" uid="uid://c3mosj7uc2lgx" path="res://passengers/gfx/passenger-01-01.png" id="1_t0ski"]
 [ext_resource type="Texture2D" uid="uid://c5yaqc3xws0kd" path="res://passengers/gfx/passenger-01-02.png" id="2_571kh"]
+[ext_resource type="Texture2D" uid="uid://dsubrifkq4xc4" path="res://passengers/gfx/passenger-01.png" id="2_pl5o4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfcgm"]
+atlas = ExtResource("2_pl5o4")
+region = Rect2(0, 205, 480, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ux82w"]
+atlas = ExtResource("2_pl5o4")
+region = Rect2(480, 205, 480, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awdkk"]
+atlas = ExtResource("2_pl5o4")
+region = Rect2(960, 205, 480, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oggqk"]
+atlas = ExtResource("2_pl5o4")
+region = Rect2(1440, 205, 480, 640)
 
 [resource]
 animations = [{
@@ -15,10 +32,51 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_t0ski")
+"texture": SubResource("AtlasTexture_mfcgm")
 }],
 "loop": true,
 "name": &"sitting",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfcgm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ux82w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awdkk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oggqk")
+}],
+"loop": true,
+"name": &"sitting_all",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oggqk")
+}],
+"loop": true,
+"name": &"sitting_angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awdkk")
+}],
+"loop": true,
+"name": &"sitting_exclamation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ux82w")
+}],
+"loop": true,
+"name": &"sitting_question",
 "speed": 5.0
 }, {
 "frames": [{
