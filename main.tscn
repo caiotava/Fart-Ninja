@@ -1,14 +1,33 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvrnnt3hq10fa"]
+[gd_scene load_steps=6 format=3 uid="uid://dvrnnt3hq10fa"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_2godn"]
 [ext_resource type="PackedScene" uid="uid://3k0hjwkw483j" path="res://train/carriage.tscn" id="1_4uauv"]
 [ext_resource type="PackedScene" uid="uid://bwgga2x2r687h" path="res://ui/game_over.tscn" id="2_exrdf"]
+[ext_resource type="PackedScene" uid="uid://buk37ynfb02ld" path="res://train/carriages/carriage_with_bathroom.tscn" id="3_yx58i"]
 [ext_resource type="PackedScene" uid="uid://dt5hre40cobum" path="res://ui/victory.tscn" id="4_stte0"]
 
 [node name="Root" type="Node2D"]
 script = ExtResource("1_2godn")
 
 [node name="Carriage" parent="." instance=ExtResource("1_4uauv")]
+
+[node name="Camera2D" parent="Carriage" index="0"]
+position = Vector2(1169, 587)
+
+[node name="Player" parent="Carriage" index="1"]
+position = Vector2(1169, 587)
+
+[node name="FullReleasePop" parent="Carriage/UI/FartBar" index="0"]
+max_distance = 2e+09
+
+[node name="Decrease" parent="Carriage/UI/FartBar" index="1"]
+max_distance = 2e+09
+
+[node name="Soundtrack" parent="Carriage/UI" index="1"]
+max_distance = 2e+09
+
+[node name="LastCarriage" parent="Carriage/Carriages" index="3" instance=ExtResource("3_yx58i")]
+position = Vector2(4727, -2)
 
 [node name="GameOver" parent="." instance=ExtResource("2_exrdf")]
 visible = false
@@ -30,5 +49,7 @@ offset_bottom = -103.0
 
 [editable path="Carriage"]
 [editable path="Carriage/Player"]
+[editable path="Carriage/Carriages/Carriage03"]
+[editable path="Carriage/Carriages/LastCarriage"]
 [editable path="GameOver"]
 [editable path="Victory"]

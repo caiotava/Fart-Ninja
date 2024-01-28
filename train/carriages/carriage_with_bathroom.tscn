@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://buk37ynfb02ld"]
+
+[ext_resource type="PackedScene" uid="uid://c7aw5vl1g0kgp" path="res://train/carriage_base.tscn" id="1_y5qeq"]
+[ext_resource type="Script" path="res://train/carriages/Bathroom.gd" id="2_4fhxn"]
+[ext_resource type="Texture2D" uid="uid://cignifkxdf4vu" path="res://train/gfx/train-atlas.png" id="2_mtdvs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqjmj"]
+size = Vector2(414, 403.5)
+
+[node name="Carriage" instance=ExtResource("1_y5qeq")]
+
+[node name="CollisionShape2D" parent="CarriageBackground/Collisions/WallLeftDoor" index="0"]
+disabled = true
+
+[node name="Bathroom" type="Node2D" parent="." index="5" groups=["bathrooms"]]
+script = ExtResource("2_4fhxn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bathroom" index="0"]
+position = Vector2(1161, 514)
+texture = ExtResource("2_mtdvs")
+region_enabled = true
+region_rect = Rect2(783, 1916, 416, 757)
+
+[node name="Area2D" type="Area2D" parent="Bathroom" index="1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bathroom/Area2D" index="0"]
+position = Vector2(1144, 373.25)
+shape = SubResource("RectangleShape2D_dqjmj")
+
+[connection signal="body_entered" from="Bathroom/Area2D" to="Bathroom" method="_on_area_2d_body_entered"]

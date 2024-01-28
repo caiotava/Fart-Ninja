@@ -6,3 +6,9 @@
 
 [node name="CollisionShape2D" parent="CarriageBackground/Collisions/WallLeftDoor" index="0"]
 disabled = true
+
+[node name="CollisionShape2D" parent="CarriageBackground/Collisions/WallRight" index="0"]
+disabled = true
+
+[node name="CollisionShape2D" parent="EndOfCarriage" index="0"]
+disabled = true

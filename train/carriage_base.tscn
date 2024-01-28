@@ -24,7 +24,7 @@ size = Vector2(30, 104)
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_gub6n"]
 vertices = PackedVector2Array(406, 791, 406, 1009, 262, 1005, 258, 314, 382, 446, 543, 446, 541, 310, 1852, 317, 1847, 1031, 562, 789, 382, 312, 566, 1002)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 9), PackedInt32Array(3, 10, 4), PackedInt32Array(0, 4, 5, 9), PackedInt32Array(9, 8, 11)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(277, 500, 314, 455, 368, 458, 375, 588, 474, 590, 469, 448, 633, 449, 633, 590, 738, 590, 1628, 457, 1691, 502, 1693, 998, 542, 994, 519, 760, 411, 760, 418, 996, 266, 1003)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(277, 500, 314, 455, 368, 458, 375, 588, 474, 590, 469, 448, 633, 449, 633, 590, 738, 590, 1628, 457, 1691, 502, 1693, 998, 542, 994, 519, 760, 411, 760, 418, 996, 266, 1003, 274.539, 612.549, 275.034, 589.898)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lffp5"]
