@@ -21,7 +21,7 @@ func _ready():
 func _input(event):
 	# activate fart for any input at the beginning of the game
 	if not keep_last_pressed:
-		keep_last_pressed = Time.get_ticks_msec()
+		keep_last_pressed = Time.get_ticks_msec() - 1000
 	if event is InputEventKey and event.is_action_pressed("keep") and not full_release:
 		# Increase the progress bar value
 		value += keep_increase
@@ -50,17 +50,17 @@ func _process(delta):
 		player.animation_name = "walking_fart"
 		#if $Decrease.playing:
 			#$Decrease.stop()
-		#if not $FullReleaseIncrease.playing:
-			#$FullReleaseIncrease.play()
-			#if full_release_sound_position:
-				#$FullReleaseIncrease.seek(full_release_sound_position)
+		if not $FullReleaseIncrease.playing:
+			$FullReleaseIncrease.play()
+			if full_release_sound_position:
+				$FullReleaseIncrease.seek(full_release_sound_position)
 		#if not $Fart.playing:
 			#$Fart.play()
 		#value_hist = [value]
 	else:
-		#if $FullReleaseIncrease.playing:
-			#full_release_sound_position = $FullReleaseIncrease.get_playback_position()
-			#$FullReleaseIncrease.stop()
+		if $FullReleaseIncrease.playing:
+			full_release_sound_position = $FullReleaseIncrease.get_playback_position()
+			$FullReleaseIncrease.stop()
 		#if $Fart.playing:
 			#$Fart.stop()
 		if not $Decrease.playing:
