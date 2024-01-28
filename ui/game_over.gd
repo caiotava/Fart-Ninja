@@ -8,9 +8,9 @@ var sounds = [
 ]
 
 var subtitles = [
-	"Someone call the hazmat team, we've got a situation here!",
+	"Someone call the hazmat team, \n we've got a situation here!",
 	"Emission Impossible: Mission Failed!",
-	"Game over! Wow! That was a full-scale fartepiano concert!",
+	"Wow! That was a full-scale fartepiano concert!",
 	"The Stealth Fart Ninja has Failed the Mission!"
 ]
 

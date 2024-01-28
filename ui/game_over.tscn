@@ -44,5 +44,6 @@ theme_override_font_sizes/font_size = 100
 text = "Retry"
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="."]
+volume_db = 10.0
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
