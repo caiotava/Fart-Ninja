@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bcih6li88g6a" path="res://passengers/passenger.tscn" id="3_nl3fb"]
 [ext_resource type="SpriteFrames" uid="uid://g7udik6y4bs1" path="res://passengers/animations/passenger-03.tres" id="5_n6u1b"]
 [ext_resource type="SpriteFrames" uid="uid://3f8jh0gi3o8f" path="res://passengers/animations/passenger-02.tres" id="6_666n3"]
-[ext_resource type="SpriteFrames" uid="uid://r8jtnpq54hjq" path="res://passengers/animations/train-ward.tres" id="7_8dck6"]
+[ext_resource type="SpriteFrames" uid="uid://bn1ivb25xwjrg" path="res://passengers/animations/train-ward.tres" id="7_8dck6"]
 
 [node name="Carriage" instance=ExtResource("1_qrijo")]
 
@@ -37,167 +37,39 @@ available_spaces = [NodePath("../../../Passengers/Passenger5"), NodePath("../../
 
 [node name="Passenger" parent="Passengers" index="0" instance=ExtResource("3_nl3fb")]
 position = Vector2(1580, 510)
-movement_speed = 200.0
-movement_target_position = Vector2(60, 180)
-is_paused = false
-pause_time_limit = 1.5
-pause_likelihood = 0.1
-can_stand_up = false
-stand_up_time = 1.5
-game_over_time = 2.0
-inverte_flip = false
-alert_question_time = 1.2
-alert_exclamation_time = 1.3
-alert_angry_time = 1.5
-alert_gameover_time = 2.0
 
 [node name="Passenger2" parent="Passengers" index="1" instance=ExtResource("3_nl3fb")]
 position = Vector2(1580, 510)
 animation_resource = ExtResource("5_n6u1b")
-movement_speed = 200.0
-movement_target_position = Vector2(60, 180)
-is_paused = false
-pause_time_limit = 1.5
-pause_likelihood = 0.1
-can_stand_up = false
-stand_up_time = 1.5
-game_over_time = 2.0
-inverte_flip = false
-alert_question_time = 1.2
-alert_exclamation_time = 1.3
-alert_angry_time = 1.5
-alert_gameover_time = 2.0
 
 [node name="Passenger3" parent="Passengers" index="2" instance=ExtResource("3_nl3fb")]
 position = Vector2(1580, 510)
 animation_resource = ExtResource("6_666n3")
-movement_speed = 200.0
-movement_target_position = Vector2(60, 180)
-is_paused = false
-pause_time_limit = 1.5
-pause_likelihood = 0.1
-can_stand_up = false
-stand_up_time = 1.5
-game_over_time = 2.0
-inverte_flip = false
-alert_question_time = 1.2
-alert_exclamation_time = 1.3
-alert_angry_time = 1.5
-alert_gameover_time = 2.0
 
 [node name="Passenger4" parent="Passengers" index="3" instance=ExtResource("3_nl3fb")]
 position = Vector2(1580, 510)
 animation_resource = ExtResource("5_n6u1b")
-movement_speed = 200.0
-movement_target_position = Vector2(60, 180)
-is_paused = false
-pause_time_limit = 1.5
-pause_likelihood = 0.1
-can_stand_up = false
-stand_up_time = 1.5
-game_over_time = 2.0
-inverte_flip = false
-alert_question_time = 1.2
-alert_exclamation_time = 1.3
-alert_angry_time = 1.5
-alert_gameover_time = 2.0
 
 [node name="Passenger5" parent="Passengers" index="4" instance=ExtResource("3_nl3fb")]
 position = Vector2(1580, 510)
-movement_speed = 200.0
-movement_target_position = Vector2(60, 180)
-is_paused = false
-pause_time_limit = 1.5
-pause_likelihood = 0.1
-can_stand_up = false
-stand_up_time = 1.5
-game_over_time = 2.0
-inverte_flip = false
-alert_question_time = 1.2
-alert_exclamation_time = 1.3
-alert_angry_time = 1.5
-alert_gameover_time = 2.0
 
 [node name="Passenger6" parent="Passengers" index="5" instance=ExtResource("3_nl3fb")]
 position = Vector2(1580, 510)
 animation_resource = ExtResource("5_n6u1b")
-movement_speed = 200.0
-movement_target_position = Vector2(60, 180)
-is_paused = false
-pause_time_limit = 1.5
-pause_likelihood = 0.1
-can_stand_up = false
-stand_up_time = 1.5
-game_over_time = 2.0
-inverte_flip = false
-alert_question_time = 1.2
-alert_exclamation_time = 1.3
-alert_angry_time = 1.5
-alert_gameover_time = 2.0
 
 [node name="Passenger7" parent="Passengers" index="6" instance=ExtResource("3_nl3fb")]
 position = Vector2(1580, 510)
 animation_resource = ExtResource("5_n6u1b")
-movement_speed = 200.0
-movement_target_position = Vector2(60, 180)
-is_paused = false
-pause_time_limit = 1.5
-pause_likelihood = 0.1
-can_stand_up = false
-stand_up_time = 1.5
-game_over_time = 2.0
-inverte_flip = false
-alert_question_time = 1.2
-alert_exclamation_time = 1.3
-alert_angry_time = 1.5
-alert_gameover_time = 2.0
 
 [node name="Passenger8" parent="Passengers" index="7" instance=ExtResource("3_nl3fb")]
 position = Vector2(1580, 510)
 animation_resource = ExtResource("6_666n3")
-movement_speed = 200.0
-movement_target_position = Vector2(60, 180)
-is_paused = false
-pause_time_limit = 1.5
-pause_likelihood = 0.1
-can_stand_up = false
-stand_up_time = 1.5
-game_over_time = 2.0
-inverte_flip = false
-alert_question_time = 1.2
-alert_exclamation_time = 1.3
-alert_angry_time = 1.5
-alert_gameover_time = 2.0
 
 [node name="Passenger9" parent="Passengers" index="8" instance=ExtResource("3_nl3fb")]
 position = Vector2(1580, 510)
-movement_speed = 200.0
-movement_target_position = Vector2(60, 180)
-is_paused = false
-pause_time_limit = 1.5
-pause_likelihood = 0.1
-can_stand_up = false
-stand_up_time = 1.5
-game_over_time = 2.0
-inverte_flip = false
-alert_question_time = 1.2
-alert_exclamation_time = 1.3
-alert_angry_time = 1.5
-alert_gameover_time = 2.0
 
 [node name="TrainWard" parent="Passengers" index="9" instance=ExtResource("3_nl3fb")]
 position = Vector2(1580, 510)
 animation_resource = ExtResource("7_8dck6")
 movement_speed = 120.0
-movement_target_position = Vector2(60, 180)
-is_paused = false
 pause_time_limit = 2.5
-pause_likelihood = 0.1
-can_stand_up = false
-stand_up_time = 1.5
-game_over_time = 2.0
-inverte_flip = false
-alert_question_time = 1.2
-alert_exclamation_time = 1.3
-alert_angry_time = 1.5
-alert_gameover_time = 2.0

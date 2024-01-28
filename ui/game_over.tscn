@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwgga2x2r687h"]
+[gd_scene load_steps=3 format=3 uid="uid://bwgga2x2r687h"]
 
 [ext_resource type="Script" path="res://ui/game_over.gd" id="1_877qr"]
+[ext_resource type="Texture2D" uid="uid://c0iwrcdum30qw" path="res://ui/FartNinja_LoseCREEN.png" id="2_6pe3f"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -15,7 +16,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_877qr")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1052, 591)
+texture = ExtResource("2_6pe3f")
+
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 509.0
 offset_top = 106.0
@@ -26,21 +32,21 @@ text = "Game Over!"
 
 [node name="Subtitle" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 294.0
-offset_top = 387.0
-offset_right = 1834.0
-offset_bottom = 1130.0
+offset_left = 296.0
+offset_top = 756.0
+offset_right = 1836.0
+offset_bottom = 1499.0
 theme_override_font_sizes/normal_font_size = 70
 bbcode_enabled = true
 text = "Subtitle"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 769.0
-offset_top = 711.0
-offset_right = 1398.0
-offset_bottom = 856.0
-theme_override_font_sizes/font_size = 100
+offset_left = 918.0
+offset_top = 984.0
+offset_right = 1222.0
+offset_bottom = 1088.0
+theme_override_font_sizes/font_size = 70
 text = "Retry"
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="."]

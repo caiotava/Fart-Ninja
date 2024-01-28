@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dt5hre40cobum"]
+[gd_scene load_steps=3 format=3 uid="uid://dt5hre40cobum"]
 
 [ext_resource type="Script" path="res://ui/victory.gd" id="1_gvgkk"]
+[ext_resource type="Texture2D" uid="uid://ckv0ac7jkbg13" path="res://ui/FartNinja_WINSCREEN.png" id="2_8pjd4"]
 
 [node name="Victory" type="Control"]
 layout_mode = 3
@@ -15,7 +16,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gvgkk")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1052, 592)
+texture = ExtResource("2_8pjd4")
+
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 295.0
 offset_top = 167.0
@@ -27,10 +33,14 @@ text = "[center] Victory! [/center]"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 307.0
-offset_top = 441.0
-offset_right = 1847.0
-offset_bottom = 1184.0
+offset_left = 321.0
+offset_top = 791.0
+offset_right = 1861.0
+offset_bottom = 1534.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
 theme_override_font_sizes/normal_font_size = 70
 bbcode_enabled = true
 text = "[center] Your restraint is legendary! 
@@ -38,11 +48,11 @@ The train thanks you! [/center]"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 772.0
-offset_top = 720.0
-offset_right = 1401.0
-offset_bottom = 865.0
-theme_override_font_sizes/font_size = 100
+offset_left = 918.0
+offset_top = 992.0
+offset_right = 1196.0
+offset_bottom = 1096.0
+theme_override_font_sizes/font_size = 70
 text = "Retry"
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="."]
