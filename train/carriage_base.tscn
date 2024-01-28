@@ -48,7 +48,7 @@ region_rect = Rect2(162, 866, 546, 757)
 
 [node name="CarriageBackgroundMiddle" type="Sprite2D" parent="CarriageBackground"]
 visibility_layer = 63
-position = Vector2(801, 135)
+position = Vector2(794, 135)
 texture = ExtResource("1_o0fjw")
 centered = false
 region_enabled = true
@@ -56,7 +56,7 @@ region_rect = Rect2(783, 864, 416, 757)
 
 [node name="CarriageBackgroundRight" type="Sprite2D" parent="CarriageBackground"]
 visibility_layer = 63
-position = Vector2(1217, 135)
+position = Vector2(1210, 135)
 texture = ExtResource("1_o0fjw")
 centered = false
 region_enabled = true
@@ -74,7 +74,7 @@ region_rect = Rect2(159, 3545, 549, 294)
 [node name="WallBottomMiddle" type="Sprite2D" parent="CarriageBackground"]
 visibility_layer = 2
 z_index = 20
-position = Vector2(801, 655)
+position = Vector2(797, 655)
 texture = ExtResource("1_o0fjw")
 centered = false
 region_enabled = true
@@ -83,7 +83,7 @@ region_rect = Rect2(783, 3582, 416, 255)
 [node name="WallBottomRight" type="Sprite2D" parent="CarriageBackground"]
 visibility_layer = 2
 z_index = 20
-position = Vector2(1217, 616)
+position = Vector2(1213, 616)
 texture = ExtResource("1_o0fjw")
 centered = false
 region_enabled = true
@@ -100,7 +100,7 @@ region_rect = Rect2(0, 308, 1250, 157)
 [node name="CarriageConnection" type="Node2D" parent="CarriageBackground"]
 
 [node name="Sprite2D" type="Sprite2D" parent="CarriageBackground/CarriageConnection"]
-position = Vector2(1810, 469)
+position = Vector2(1806, 469)
 texture = ExtResource("1_o0fjw")
 region_enabled = true
 region_rect = Rect2(1808, 1099, 112, 530)
@@ -208,7 +208,7 @@ region_rect = Rect2(628, 570, 372, 150)
 
 [node name="WindowMiddle" type="Sprite2D" parent="CarriageBackground/Windows"]
 z_index = 20
-position = Vector2(1005.5, 779)
+position = Vector2(999.5, 779)
 scale = Vector2(1.04032, 1.04)
 texture = ExtResource("1_o0fjw")
 region_enabled = true
@@ -216,7 +216,7 @@ region_rect = Rect2(1119, 574, 372, 150)
 
 [node name="WindowRight" type="Sprite2D" parent="CarriageBackground/Windows"]
 z_index = 20
-position = Vector2(1426.5, 779)
+position = Vector2(1420.5, 779)
 scale = Vector2(1.03495, 1.04)
 texture = ExtResource("1_o0fjw")
 region_enabled = true
