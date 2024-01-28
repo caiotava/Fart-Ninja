@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://ct6ajbmd56n20"]
+[gd_scene load_steps=6 format=3 uid="uid://ct6ajbmd56n20"]
 
 [ext_resource type="PackedScene" uid="uid://c7aw5vl1g0kgp" path="res://train/carriage_base.tscn" id="1_e3oj6"]
 [ext_resource type="PackedScene" uid="uid://7mwe3233ahmm" path="res://train/seat.tscn" id="2_631d8"]
 [ext_resource type="PackedScene" uid="uid://b654dxpourjnt" path="res://train/seat_one_space.tscn" id="3_8rjta"]
+[ext_resource type="PackedScene" uid="uid://bcih6li88g6a" path="res://passengers/passenger.tscn" id="4_x4r72"]
+[ext_resource type="SpriteFrames" uid="uid://bmeoy1t68s31s" path="res://passengers/animations/fart-police.tres" id="5_ke1ri"]
 
 [node name="Carriage" instance=ExtResource("1_e3oj6")]
 
@@ -20,9 +22,8 @@ available_spaces = [null, null]
 position = Vector2(819, 248)
 available_spaces = [null, null]
 
-[node name="Seat3" parent="Seats/Top" index="2" node_paths=PackedStringArray("available_spaces") instance=ExtResource("3_8rjta")]
+[node name="Seat3" parent="Seats/Top" index="2" instance=ExtResource("3_8rjta")]
 position = Vector2(1064, 247)
-available_spaces = [null]
 
 [node name="Seat" parent="Seats/Bottom" index="0" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_631d8")]
 z_index = 1
@@ -33,3 +34,16 @@ available_spaces = [null, null]
 z_index = 1
 position = Vector2(819, 616)
 available_spaces = [null, null]
+
+[node name="NavigationRegion2D" parent="Passengers" index="0"]
+metadata/_edit_lock_ = true
+
+[node name="Passenger" parent="Passengers" index="1" instance=ExtResource("4_x4r72")]
+position = Vector2(1473, 526)
+animation_resource = ExtResource("5_ke1ri")
+movement_path_length = Array[Vector2]([Vector2(2000, 230), Vector2(3600, 920)])
+
+[node name="AnimatedSprite2D" parent="Passengers/Passenger" index="0"]
+flip_h = true
+
+[editable path="Passengers/Passenger"]

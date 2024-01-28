@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://bcih6li88g6a"]
 
 [ext_resource type="Script" path="res://passengers/passenger.gd" id="1_nd8ur"]
-[ext_resource type="SpriteFrames" uid="uid://cgppy5hs3l4fs" path="res://passengers/animations/passenger-01.tres" id="2_6iix8"]
+[ext_resource type="SpriteFrames" uid="uid://bmeoy1t68s31s" path="res://passengers/animations/fart-police.tres" id="2_nkr8l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vb5ac"]
-radius = 3.0
-height = 14.0
+radius = 33.8571
+height = 257.143
 
 [node name="Passenger" type="CharacterBody2D" groups=["passengers"]]
 z_index = 1
@@ -15,11 +15,12 @@ platform_floor_layers = 4294967040
 script = ExtResource("1_nd8ur")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("2_6iix8")
+position = Vector2(21.4286, -378.571)
+sprite_frames = ExtResource("2_nkr8l")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 9)
+position = Vector2(10.7143, -10.7143)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_vb5ac")
 

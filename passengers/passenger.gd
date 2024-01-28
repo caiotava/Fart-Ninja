@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name Passenger
 
 var default_path_length : Array[Vector2] = [Vector2(300, 230), Vector2(1800, 920)]
+var default_sitting_position : Vector2 = Vector2(71.429, -171.429)
 
 @export var animation_resource : Resource = null
 
@@ -15,6 +16,7 @@ var default_path_length : Array[Vector2] = [Vector2(300, 230), Vector2(1800, 920
 @export var can_stand_up : bool = false
 @export var stand_up_time : float = 1.5
 @export var game_over_time: float = 2.0
+@export var inverte_flip: bool = false
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var animation_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -121,8 +123,9 @@ func set_sitting_animation():
 	if animation_sprite == null:
 		return
 
-	animation_sprite.flip_h = false
+	animation_sprite.flip_h = inverte_flip
 	animation_sprite.play("sitting")
+	animation_sprite.position = default_sitting_position
 
 func enter_alert_mode():
 	timer_game_over.start()
