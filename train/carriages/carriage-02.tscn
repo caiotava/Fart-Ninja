@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://ct6ajbmd56n20"]
+
+[ext_resource type="PackedScene" uid="uid://c7aw5vl1g0kgp" path="res://train/carriage_base.tscn" id="1_e3oj6"]
+[ext_resource type="PackedScene" uid="uid://7mwe3233ahmm" path="res://train/seat.tscn" id="2_631d8"]
+[ext_resource type="PackedScene" uid="uid://b654dxpourjnt" path="res://train/seat_one_space.tscn" id="3_8rjta"]
+
+[node name="Carriage" instance=ExtResource("1_e3oj6")]
+
+[node name="CollisionShape2D" parent="CarriageBackground/Collisions/WallLeftDoor" index="0"]
+disabled = true
+
+[node name="CollisionShape2D" parent="CarriageBackground/Collisions/WallRight" index="0"]
+disabled = true
+
+[node name="Seat" parent="Seats/Top" index="0" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_631d8")]
+position = Vector2(556, 248)
+available_spaces = [null, null]
+
+[node name="Seat2" parent="Seats/Top" index="1" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_631d8")]
+position = Vector2(819, 248)
+available_spaces = [null, null]
+
+[node name="Seat3" parent="Seats/Top" index="2" node_paths=PackedStringArray("available_spaces") instance=ExtResource("3_8rjta")]
+position = Vector2(1064, 247)
+available_spaces = [null]
+
+[node name="Seat" parent="Seats/Bottom" index="0" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_631d8")]
+z_index = 1
+position = Vector2(556, 616)
+available_spaces = [null, null]
+
+[node name="Seat2" parent="Seats/Bottom" index="1" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_631d8")]
+z_index = 1
+position = Vector2(819, 616)
+available_spaces = [null, null]

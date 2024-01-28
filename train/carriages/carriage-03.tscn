@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfxgb5s8h7n7n"]
+
+[ext_resource type="PackedScene" uid="uid://c7aw5vl1g0kgp" path="res://train/carriage_base.tscn" id="1_5nida"]
+
+[node name="Carriage" instance=ExtResource("1_5nida")]
+
+[node name="CollisionShape2D" parent="CarriageBackground/Collisions/WallLeftDoor" index="0"]
+disabled = true

@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://b654dxpourjnt"]
+
+[ext_resource type="Script" path="res://train/seat.gd" id="1_d1drg"]
+[ext_resource type="Texture2D" uid="uid://cignifkxdf4vu" path="res://train/gfx/train-atlas.png" id="2_omj1e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ybncw"]
+size = Vector2(99.25, 121)
+
+[node name="Seat" type="StaticBody2D" node_paths=PackedStringArray("available_spaces") groups=["seats"]]
+script = ExtResource("1_d1drg")
+available_spaces = [null]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_omj1e")
+centered = false
+region_enabled = true
+region_rect = Rect2(408, 533, 101, 165)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(51.375, 106.5)
+shape = SubResource("RectangleShape2D_ybncw")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+
+[node name="SpacesPositions" type="Node2D" parent="."]
+
+[node name="Position1" type="Marker2D" parent="SpacesPositions"]
+position = Vector2(79, 73)
+gizmo_extents = 38.0
+
+[node name="PositionToTakeASeat" type="Marker2D" parent="."]
+position = Vector2(145, 100)
+gizmo_extents = 38.0
