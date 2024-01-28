@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfxgb5s8h7n7n"]
+[gd_scene load_steps=7 format=3 uid="uid://cfxgb5s8h7n7n"]
 
 [ext_resource type="PackedScene" uid="uid://c7aw5vl1g0kgp" path="res://train/carriage_base.tscn" id="1_5nida"]
+[ext_resource type="PackedScene" uid="uid://bcih6li88g6a" path="res://passengers/passenger.tscn" id="2_alxmu"]
+[ext_resource type="PackedScene" uid="uid://7mwe3233ahmm" path="res://train/seat.tscn" id="2_pyhcb"]
+[ext_resource type="SpriteFrames" uid="uid://bmeoy1t68s31s" path="res://passengers/animations/fart-police.tres" id="3_aahcs"]
+[ext_resource type="PackedScene" uid="uid://b654dxpourjnt" path="res://train/seat_one_space.tscn" id="3_km4of"]
+[ext_resource type="SpriteFrames" uid="uid://r8jtnpq54hjq" path="res://passengers/animations/train-ward.tres" id="4_aa7wo"]
 
 [node name="Carriage" instance=ExtResource("1_5nida")]
 
@@ -9,6 +14,70 @@ disabled = true
 
 [node name="CollisionShape2D" parent="CarriageBackground/Collisions/WallRight" index="0"]
 disabled = true
+
+[node name="Seat" parent="Seats/Top" index="0" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_pyhcb")]
+position = Vector2(556, 248)
+available_spaces = [NodePath(""), NodePath("")]
+
+[node name="Seat2" parent="Seats/Top" index="1" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_pyhcb")]
+position = Vector2(819, 248)
+available_spaces = [NodePath(""), NodePath("")]
+
+[node name="Seat3" parent="Seats/Top" index="2" node_paths=PackedStringArray("available_spaces") instance=ExtResource("3_km4of")]
+position = Vector2(1064, 247)
+available_spaces = [NodePath("")]
+
+[node name="Seat4" parent="Seats/Top" index="3" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_pyhcb")]
+position = Vector2(1307, 240)
+available_spaces = [NodePath(""), NodePath("")]
+
+[node name="Seat5" parent="Seats/Top" index="4" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_pyhcb")]
+position = Vector2(1570, 240)
+available_spaces = [NodePath(""), NodePath("")]
+
+[node name="Passenger" parent="Passengers" index="1" instance=ExtResource("2_alxmu")]
+position = Vector2(1480, 565)
+animation_resource = ExtResource("3_aahcs")
+movement_speed = 400.0
+movement_path_length = Array[Vector2]([Vector2(3700, 230), Vector2(5000, 920)])
+alert_question_time = 0.2
+alert_exclamation_time = 0.2
+
+[node name="Passenger2" parent="Passengers" index="2" instance=ExtResource("2_alxmu")]
+position = Vector2(1480, 565)
+animation_resource = ExtResource("3_aahcs")
+movement_speed = 400.0
+movement_path_length = Array[Vector2]([Vector2(3700, 230), Vector2(5000, 920)])
+alert_question_time = 0.2
+alert_exclamation_time = 0.2
+
+[node name="Passenger5" parent="Passengers" index="3" instance=ExtResource("2_alxmu")]
+position = Vector2(1480, 565)
+animation_resource = ExtResource("3_aahcs")
+movement_speed = 400.0
+movement_path_length = Array[Vector2]([Vector2(3700, 230), Vector2(5000, 920)])
+alert_question_time = 0.2
+alert_exclamation_time = 0.2
+
+[node name="Passenger6" parent="Passengers" index="4" instance=ExtResource("2_alxmu")]
+position = Vector2(1480, 565)
+animation_resource = ExtResource("3_aahcs")
+movement_speed = 400.0
+movement_path_length = Array[Vector2]([Vector2(3700, 230), Vector2(5000, 920)])
+alert_question_time = 0.2
+alert_exclamation_time = 0.2
+
+[node name="Passenger3" parent="Passengers" index="5" instance=ExtResource("2_alxmu")]
+position = Vector2(1480, 565)
+animation_resource = ExtResource("4_aa7wo")
+movement_speed = 100.0
+movement_path_length = Array[Vector2]([Vector2(3700, 230), Vector2(5000, 920)])
+
+[node name="Passenger4" parent="Passengers" index="6" instance=ExtResource("2_alxmu")]
+position = Vector2(1480, 565)
+animation_resource = ExtResource("4_aa7wo")
+movement_speed = 100.0
+movement_path_length = Array[Vector2]([Vector2(3700, 230), Vector2(5000, 920)])
 
 [node name="CollisionShape2D" parent="EndOfCarriage" index="0"]
 disabled = true
