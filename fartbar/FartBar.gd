@@ -1,7 +1,7 @@
 extends ProgressBar
 
 @export var keep_increase = 1.0
-@export var const_descrease = 0.2
+@export var const_descrease = 0.25
 @export var release_increase = 0.1
 @export var full_release_increase = 0.5
 #@export var limit = 10
@@ -9,6 +9,7 @@ extends ProgressBar
 var keep_last_pressed
 var full_release = false
 signal do_fart
+var full_release_sound_position;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -41,8 +42,19 @@ func _process(delta):
 		do_fart.emit()
 		if $Decrease.playing:
 			$Decrease.stop()
+		if not $FullReleaseIncrease.playing:
+			$FullReleaseIncrease.play()
+			if full_release_sound_position:
+				$FullReleaseIncrease.seek(full_release_sound_position)
+		#if not $Fart.playing:
+			#$Fart.play()
 		#value_hist = [value]
 	else:
+		if $FullReleaseIncrease.playing:
+			full_release_sound_position = $FullReleaseIncrease.get_playback_position()
+			$FullReleaseIncrease.stop()
+		if $Fart.playing:
+			$Fart.stop()
 		if not $Decrease.playing:
 			$Decrease.play()
 		#if not $Decrease1.playing and not $Decrease2.playing:
@@ -55,4 +67,5 @@ func _process(delta):
 	if value == 0:
 		full_release = true
 		$FullReleasePop.play()
+		$FullReleaseIncrease.play()
 		

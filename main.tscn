@@ -1,13 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvrnnt3hq10fa"]
+[gd_scene load_steps=6 format=3 uid="uid://dvrnnt3hq10fa"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_2godn"]
 [ext_resource type="PackedScene" uid="uid://cqyyetjooogp4" path="res://train/carriage.tscn" id="1_4uauv"]
 [ext_resource type="PackedScene" uid="uid://bwgga2x2r687h" path="res://ui/game_over.tscn" id="2_exrdf"]
+[ext_resource type="AudioStream" uid="uid://dm0328b3ew2li" path="res://audio/kazoo_mlp_song.mp3" id="3_v5u7v"]
+[ext_resource type="AudioStream" uid="uid://bhli43j1h21nu" path="res://audio/party_blower.mp3" id="4_hge84"]
 
 [node name="Root" type="Node2D"]
 script = ExtResource("1_2godn")
 
 [node name="Carriage" parent="." instance=ExtResource("1_4uauv")]
+
+[node name="FullReleaseIncrease" parent="Carriage/FartBar" index="2"]
+stream = ExtResource("3_v5u7v")
+
+[node name="Fart" parent="Carriage/FartBar" index="3"]
+stream = ExtResource("4_hge84")
 
 [node name="GameOver" parent="." instance=ExtResource("2_exrdf")]
 visible = false
