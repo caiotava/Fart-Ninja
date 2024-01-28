@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bwgga2x2r687h"]
+[gd_scene load_steps=2 format=3 uid="uid://bwgga2x2r687h"]
+
+[ext_resource type="Script" path="res://ui/game_over.gd" id="1_877qr"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -11,6 +13,7 @@ offset_right = -802.0
 offset_bottom = -818.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_877qr")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
@@ -29,3 +32,7 @@ offset_right = 1481.0
 offset_bottom = 855.0
 theme_override_font_sizes/font_size = 100
 text = "Retry"
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
