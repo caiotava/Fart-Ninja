@@ -22,5 +22,5 @@ texture_over = ExtResource("2_cscel")
 texture_progress = ExtResource("2_vxyhu")
 texture_progress_offset = Vector2(0, 145)
 script = ExtResource("1_ba7i4")
-const_descrease = 0.8
-release_increase = 1.0
+const_descrease = 1.0
+release_increase = 0.7

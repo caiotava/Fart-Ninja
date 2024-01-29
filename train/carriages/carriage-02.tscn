@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://ct6ajbmd56n20"]
+[gd_scene load_steps=9 format=3 uid="uid://ct6ajbmd56n20"]
 
 [ext_resource type="PackedScene" uid="uid://c7aw5vl1g0kgp" path="res://train/carriage_base.tscn" id="1_e3oj6"]
 [ext_resource type="PackedScene" uid="uid://7mwe3233ahmm" path="res://train/seat.tscn" id="2_631d8"]
 [ext_resource type="PackedScene" uid="uid://b654dxpourjnt" path="res://train/seat_one_space.tscn" id="3_8rjta"]
 [ext_resource type="PackedScene" uid="uid://bcih6li88g6a" path="res://passengers/passenger.tscn" id="4_x4r72"]
 [ext_resource type="SpriteFrames" uid="uid://bmeoy1t68s31s" path="res://passengers/animations/fart-police.tres" id="5_ke1ri"]
+[ext_resource type="SpriteFrames" uid="uid://cgppy5hs3l4fs" path="res://passengers/animations/passenger-01.tres" id="6_yr1v0"]
+[ext_resource type="SpriteFrames" uid="uid://3f8jh0gi3o8f" path="res://passengers/animations/passenger-02.tres" id="7_3jj7n"]
+[ext_resource type="SpriteFrames" uid="uid://g7udik6y4bs1" path="res://passengers/animations/passenger-03.tres" id="8_jls2l"]
 
 [node name="Carriage2" instance=ExtResource("1_e3oj6")]
 
@@ -16,15 +19,13 @@ disabled = true
 
 [node name="Seat" parent="Seats/Top" index="0" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_631d8")]
 position = Vector2(556, 248)
-available_spaces = [null, null]
+available_spaces = [NodePath("../../../Passengers/Sitting/Passenger"), NodePath("../../../Passengers/Sitting/Passenger2")]
 
-[node name="Seat2" parent="Seats/Top" index="1" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_631d8")]
+[node name="Seat2" parent="Seats/Top" index="1" instance=ExtResource("2_631d8")]
 position = Vector2(819, 248)
-available_spaces = [null, null]
 
-[node name="Seat3" parent="Seats/Top" index="2" node_paths=PackedStringArray("available_spaces") instance=ExtResource("3_8rjta")]
+[node name="Seat3" parent="Seats/Top" index="2" instance=ExtResource("3_8rjta")]
 position = Vector2(1077, 247)
-available_spaces = [null]
 
 [node name="Seat4" parent="Seats/Top" index="3" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_631d8")]
 position = Vector2(1323, 248)
@@ -32,12 +33,12 @@ available_spaces = [null, null]
 
 [node name="Seat5" parent="Seats/Top" index="4" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_631d8")]
 position = Vector2(1579, 248)
-available_spaces = [null, null]
+available_spaces = [NodePath("../../../Passengers/Sitting/Passenger7"), NodePath("../../../Passengers/Sitting/Passenger8")]
 
 [node name="Seat" parent="Seats/Bottom" index="0" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_631d8")]
 z_index = 1
 position = Vector2(556, 616)
-available_spaces = [null, null]
+available_spaces = [NodePath("../../../Passengers/Sitting/Passenger3"), null]
 
 [node name="Seat2" parent="Seats/Bottom" index="1" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_631d8")]
 z_index = 1
@@ -47,26 +48,64 @@ available_spaces = [null, null]
 [node name="Seat3" parent="Seats/Bottom" index="2" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_631d8")]
 z_index = 1
 position = Vector2(1075, 616)
-available_spaces = [null, null]
+available_spaces = [null, NodePath("../../../Passengers/Sitting/Passenger4")]
 
 [node name="Seat5" parent="Seats/Bottom" index="3" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_631d8")]
 z_index = 1
 position = Vector2(1323, 616)
-available_spaces = [null, null]
+available_spaces = [NodePath("../../../Passengers/Sitting/Passenger4"), null]
 
 [node name="Seat4" parent="Seats/Bottom" index="4" node_paths=PackedStringArray("available_spaces") instance=ExtResource("3_8rjta")]
 position = Vector2(1578, 683)
-available_spaces = [null]
+available_spaces = [NodePath("../../../Passengers/Sitting/Passenger9")]
 
 [node name="NavigationRegion2D" parent="Passengers" index="0"]
 metadata/_edit_lock_ = true
 
-[node name="FartPolice" parent="Passengers" index="1" instance=ExtResource("4_x4r72")]
+[node name="FartPolices" type="Node2D" parent="Passengers" index="1"]
+y_sort_enabled = true
+
+[node name="FartPolice" parent="Passengers/FartPolices" index="0" instance=ExtResource("4_x4r72")]
 position = Vector2(1473, 526)
 animation_resource = ExtResource("5_ke1ri")
 movement_path_length = Array[Vector2]([Vector2(2000, 230), Vector2(3600, 920)])
 
-[node name="AnimatedSprite2D" parent="Passengers/FartPolice" index="0"]
-flip_h = true
+[node name="FartPolice2" parent="Passengers/FartPolices" index="1" instance=ExtResource("4_x4r72")]
+position = Vector2(1473, 526)
+animation_resource = ExtResource("5_ke1ri")
+movement_path_length = Array[Vector2]([Vector2(2000, 230), Vector2(3600, 920)])
 
-[editable path="Passengers/FartPolice"]
+[node name="FartPolice3" parent="Passengers/FartPolices" index="2" instance=ExtResource("4_x4r72")]
+position = Vector2(1473, 526)
+animation_resource = ExtResource("5_ke1ri")
+movement_path_length = Array[Vector2]([Vector2(2000, 230), Vector2(3600, 920)])
+
+[node name="Sitting" type="Node2D" parent="Passengers" index="2"]
+y_sort_enabled = true
+
+[node name="Passenger" parent="Passengers/Sitting" index="0" instance=ExtResource("4_x4r72")]
+animation_resource = ExtResource("6_yr1v0")
+
+[node name="Passenger2" parent="Passengers/Sitting" index="1" instance=ExtResource("4_x4r72")]
+animation_resource = ExtResource("7_3jj7n")
+
+[node name="Passenger3" parent="Passengers/Sitting" index="2" instance=ExtResource("4_x4r72")]
+animation_resource = ExtResource("8_jls2l")
+
+[node name="Passenger4" parent="Passengers/Sitting" index="3" instance=ExtResource("4_x4r72")]
+animation_resource = ExtResource("6_yr1v0")
+
+[node name="Passenger5" parent="Passengers/Sitting" index="4" instance=ExtResource("4_x4r72")]
+animation_resource = ExtResource("7_3jj7n")
+
+[node name="Passenger6" parent="Passengers/Sitting" index="5" instance=ExtResource("4_x4r72")]
+animation_resource = ExtResource("8_jls2l")
+
+[node name="Passenger7" parent="Passengers/Sitting" index="6" instance=ExtResource("4_x4r72")]
+animation_resource = ExtResource("7_3jj7n")
+
+[node name="Passenger8" parent="Passengers/Sitting" index="7" instance=ExtResource("4_x4r72")]
+animation_resource = ExtResource("8_jls2l")
+
+[node name="Passenger9" parent="Passengers/Sitting" index="8" instance=ExtResource("4_x4r72")]
+animation_resource = ExtResource("6_yr1v0")

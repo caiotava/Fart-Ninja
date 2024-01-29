@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cfxgb5s8h7n7n"]
+[gd_scene load_steps=10 format=3 uid="uid://cfxgb5s8h7n7n"]
 
 [ext_resource type="PackedScene" uid="uid://c7aw5vl1g0kgp" path="res://train/carriage_base.tscn" id="1_5nida"]
 [ext_resource type="PackedScene" uid="uid://bcih6li88g6a" path="res://passengers/passenger.tscn" id="2_alxmu"]
@@ -6,6 +6,9 @@
 [ext_resource type="SpriteFrames" uid="uid://bmeoy1t68s31s" path="res://passengers/animations/fart-police.tres" id="3_aahcs"]
 [ext_resource type="PackedScene" uid="uid://b654dxpourjnt" path="res://train/seat_one_space.tscn" id="3_km4of"]
 [ext_resource type="SpriteFrames" uid="uid://r8jtnpq54hjq" path="res://passengers/animations/train-ward.tres" id="4_aa7wo"]
+[ext_resource type="SpriteFrames" uid="uid://cgppy5hs3l4fs" path="res://passengers/animations/passenger-01.tres" id="5_1tci5"]
+[ext_resource type="SpriteFrames" uid="uid://3f8jh0gi3o8f" path="res://passengers/animations/passenger-02.tres" id="6_1fs01"]
+[ext_resource type="SpriteFrames" uid="uid://g7udik6y4bs1" path="res://passengers/animations/passenger-03.tres" id="7_kxmoi"]
 
 [node name="Carriage2" instance=ExtResource("1_5nida")]
 
@@ -17,90 +20,241 @@ disabled = true
 
 [node name="Seat" parent="Seats/Top" index="0" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_pyhcb")]
 position = Vector2(556, 248)
-available_spaces = [null, null]
+available_spaces = [NodePath("../../../Passengers/Sitting/Passenger2"), NodePath("../../../Passengers/Sitting/Passenger5")]
 
 [node name="Seat2" parent="Seats/Top" index="1" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_pyhcb")]
 position = Vector2(819, 248)
-available_spaces = [null, null]
+available_spaces = [NodePath("../../../Passengers/Sitting/Passenger5"), NodePath("../../../Passengers/Sitting/Passenger13")]
 
 [node name="Seat3" parent="Seats/Top" index="2" node_paths=PackedStringArray("available_spaces") instance=ExtResource("3_km4of")]
 position = Vector2(1064, 247)
-available_spaces = [null]
+available_spaces = [NodePath("../../../Passengers/Sitting/Passenger7")]
 
 [node name="Seat4" parent="Seats/Top" index="3" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_pyhcb")]
 position = Vector2(1307, 240)
-available_spaces = [null, null]
+available_spaces = [NodePath("../../../Passengers/Sitting/Passenger4"), NodePath("../../../Passengers/Sitting/Passenger6")]
 
 [node name="Seat5" parent="Seats/Top" index="4" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_pyhcb")]
 position = Vector2(1570, 240)
-available_spaces = [null, null]
+available_spaces = [NodePath("../../../Passengers/Sitting/Passenger14"), NodePath("../../../Passengers/Sitting/Passenger3")]
 
 [node name="Seat" parent="Seats/Bottom" index="0" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_pyhcb")]
 z_index = 1
 position = Vector2(556, 616)
-available_spaces = [NodePath(""), NodePath("")]
+available_spaces = [NodePath("../../../Passengers/Sitting/Passenger17"), NodePath("../../../Passengers/Sitting/Passenger16")]
 
 [node name="Seat2" parent="Seats/Bottom" index="1" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_pyhcb")]
 z_index = 1
 position = Vector2(819, 616)
-available_spaces = [NodePath(""), NodePath("")]
+available_spaces = [NodePath("../../../Passengers/Sitting/Passenger15"), NodePath("../../../Passengers/Sitting/Passenger10")]
 
 [node name="Seat5" parent="Seats/Bottom" index="2" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_pyhcb")]
 z_index = 1
 position = Vector2(1355, 616)
-available_spaces = [NodePath(""), NodePath("")]
+available_spaces = [NodePath("../../../Passengers/Sitting/Passenger8"), NodePath("../../../Passengers/Sitting/Passenger12")]
 
 [node name="Seat3" parent="Seats/Bottom" index="3" node_paths=PackedStringArray("available_spaces") instance=ExtResource("3_km4of")]
 position = Vector2(1624, 683)
-available_spaces = [null]
+available_spaces = [NodePath("../../../Passengers/Sitting/Passenger9")]
 
 [node name="Seat4" parent="Seats/Bottom" index="4" node_paths=PackedStringArray("available_spaces") instance=ExtResource("3_km4of")]
 position = Vector2(1088, 683)
-available_spaces = [null]
+available_spaces = [NodePath("../../../Passengers/Sitting/Passenger11")]
 
-[node name="Passenger" parent="Passengers" index="1" instance=ExtResource("2_alxmu")]
+[node name="Sitting" type="Node2D" parent="Passengers" index="0"]
+y_sort_enabled = true
+
+[node name="Passenger2" parent="Passengers/Sitting" index="0" instance=ExtResource("2_alxmu")]
 position = Vector2(1480, 565)
-animation_resource = ExtResource("3_aahcs")
+animation_resource = ExtResource("5_1tci5")
 movement_speed = 400.0
 movement_path_length = Array[Vector2]([Vector2(3700, 230), Vector2(5000, 920)])
-alert_question_time = 0.2
-alert_exclamation_time = 0.2
+alert_question_time = 0.08
+alert_exclamation_time = 0.08
+alert_gameover_time = 0.3
+game_over_time = 0.5
 
-[node name="Passenger2" parent="Passengers" index="2" instance=ExtResource("2_alxmu")]
+[node name="Passenger5" parent="Passengers/Sitting" index="1" instance=ExtResource("2_alxmu")]
 position = Vector2(1480, 565)
-animation_resource = ExtResource("3_aahcs")
+animation_resource = ExtResource("6_1fs01")
 movement_speed = 400.0
 movement_path_length = Array[Vector2]([Vector2(3700, 230), Vector2(5000, 920)])
-alert_question_time = 0.2
-alert_exclamation_time = 0.2
+alert_question_time = 0.08
+alert_exclamation_time = 0.08
+alert_gameover_time = 0.3
+game_over_time = 0.5
 
-[node name="Passenger5" parent="Passengers" index="3" instance=ExtResource("2_alxmu")]
+[node name="Passenger7" parent="Passengers/Sitting" index="2" instance=ExtResource("2_alxmu")]
 position = Vector2(1480, 565)
-animation_resource = ExtResource("3_aahcs")
+animation_resource = ExtResource("7_kxmoi")
 movement_speed = 400.0
 movement_path_length = Array[Vector2]([Vector2(3700, 230), Vector2(5000, 920)])
-alert_question_time = 0.2
-alert_exclamation_time = 0.2
+alert_question_time = 0.08
+alert_exclamation_time = 0.08
+alert_gameover_time = 0.3
+game_over_time = 0.5
 
-[node name="Passenger6" parent="Passengers" index="4" instance=ExtResource("2_alxmu")]
+[node name="Passenger3" parent="Passengers/Sitting" index="3" instance=ExtResource("2_alxmu")]
 position = Vector2(1480, 565)
-animation_resource = ExtResource("3_aahcs")
+animation_resource = ExtResource("7_kxmoi")
+movement_speed = 100.0
+movement_path_length = Array[Vector2]([Vector2(3700, 230), Vector2(5000, 920)])
+alert_question_time = 0.08
+alert_exclamation_time = 0.08
+alert_gameover_time = 0.3
+game_over_time = 0.5
+
+[node name="Passenger4" parent="Passengers/Sitting" index="4" instance=ExtResource("2_alxmu")]
+position = Vector2(1480, 565)
+animation_resource = ExtResource("5_1tci5")
 movement_speed = 400.0
 movement_path_length = Array[Vector2]([Vector2(3700, 230), Vector2(5000, 920)])
-alert_question_time = 0.2
-alert_exclamation_time = 0.2
+alert_question_time = 0.08
+alert_exclamation_time = 0.08
+alert_gameover_time = 0.3
+game_over_time = 0.5
 
-[node name="Passenger3" parent="Passengers" index="5" instance=ExtResource("2_alxmu")]
+[node name="Passenger6" parent="Passengers/Sitting" index="5" instance=ExtResource("2_alxmu")]
+position = Vector2(1480, 565)
+animation_resource = ExtResource("6_1fs01")
+movement_speed = 400.0
+movement_path_length = Array[Vector2]([Vector2(3700, 230), Vector2(5000, 920)])
+alert_question_time = 0.08
+alert_exclamation_time = 0.08
+alert_gameover_time = 0.3
+game_over_time = 0.5
+
+[node name="Passenger8" parent="Passengers/Sitting" index="6" instance=ExtResource("2_alxmu")]
+position = Vector2(1480, 565)
+animation_resource = ExtResource("6_1fs01")
+movement_speed = 400.0
+movement_path_length = Array[Vector2]([Vector2(3700, 230), Vector2(5000, 920)])
+alert_question_time = 0.08
+alert_exclamation_time = 0.08
+alert_gameover_time = 0.3
+game_over_time = 0.5
+
+[node name="Passenger9" parent="Passengers/Sitting" index="7" instance=ExtResource("2_alxmu")]
+position = Vector2(1480, 565)
+animation_resource = ExtResource("7_kxmoi")
+movement_speed = 100.0
+movement_path_length = Array[Vector2]([Vector2(3700, 230), Vector2(5000, 920)])
+alert_question_time = 0.08
+alert_exclamation_time = 0.08
+alert_gameover_time = 0.3
+game_over_time = 0.5
+
+[node name="Passenger10" parent="Passengers/Sitting" index="8" instance=ExtResource("2_alxmu")]
+position = Vector2(1480, 565)
+animation_resource = ExtResource("5_1tci5")
+movement_speed = 400.0
+movement_path_length = Array[Vector2]([Vector2(3700, 230), Vector2(5000, 920)])
+alert_question_time = 0.08
+alert_exclamation_time = 0.08
+alert_gameover_time = 0.3
+game_over_time = 0.5
+
+[node name="Passenger11" parent="Passengers/Sitting" index="9" instance=ExtResource("2_alxmu")]
+position = Vector2(1480, 565)
+animation_resource = ExtResource("6_1fs01")
+movement_speed = 400.0
+movement_path_length = Array[Vector2]([Vector2(3700, 230), Vector2(5000, 920)])
+alert_question_time = 0.08
+alert_exclamation_time = 0.08
+alert_gameover_time = 0.3
+game_over_time = 0.5
+
+[node name="Passenger12" parent="Passengers/Sitting" index="10" instance=ExtResource("2_alxmu")]
+position = Vector2(1480, 565)
+animation_resource = ExtResource("6_1fs01")
+movement_speed = 400.0
+movement_path_length = Array[Vector2]([Vector2(3700, 230), Vector2(5000, 920)])
+alert_question_time = 0.08
+alert_exclamation_time = 0.08
+alert_gameover_time = 0.3
+game_over_time = 0.5
+
+[node name="Passenger13" parent="Passengers/Sitting" index="11" instance=ExtResource("2_alxmu")]
+position = Vector2(1480, 565)
+animation_resource = ExtResource("7_kxmoi")
+movement_speed = 100.0
+movement_path_length = Array[Vector2]([Vector2(3700, 230), Vector2(5000, 920)])
+alert_question_time = 0.08
+alert_exclamation_time = 0.08
+alert_gameover_time = 0.3
+game_over_time = 0.5
+
+[node name="Passenger14" parent="Passengers/Sitting" index="12" instance=ExtResource("2_alxmu")]
+position = Vector2(1480, 565)
+animation_resource = ExtResource("5_1tci5")
+movement_speed = 400.0
+movement_path_length = Array[Vector2]([Vector2(3700, 230), Vector2(5000, 920)])
+alert_question_time = 0.08
+alert_exclamation_time = 0.08
+alert_gameover_time = 0.3
+game_over_time = 0.5
+
+[node name="Passenger15" parent="Passengers/Sitting" index="13" instance=ExtResource("2_alxmu")]
+position = Vector2(1480, 565)
+animation_resource = ExtResource("6_1fs01")
+movement_speed = 400.0
+movement_path_length = Array[Vector2]([Vector2(3700, 230), Vector2(5000, 920)])
+alert_question_time = 0.08
+alert_exclamation_time = 0.08
+alert_gameover_time = 0.3
+game_over_time = 0.5
+
+[node name="Passenger16" parent="Passengers/Sitting" index="14" instance=ExtResource("2_alxmu")]
+position = Vector2(1480, 565)
+animation_resource = ExtResource("6_1fs01")
+movement_speed = 400.0
+movement_path_length = Array[Vector2]([Vector2(3700, 230), Vector2(5000, 920)])
+alert_question_time = 0.08
+alert_exclamation_time = 0.08
+alert_gameover_time = 0.3
+game_over_time = 0.5
+
+[node name="Passenger17" parent="Passengers/Sitting" index="15" instance=ExtResource("2_alxmu")]
+position = Vector2(1480, 565)
+animation_resource = ExtResource("7_kxmoi")
+movement_speed = 100.0
+movement_path_length = Array[Vector2]([Vector2(3700, 230), Vector2(5000, 920)])
+alert_question_time = 0.08
+alert_exclamation_time = 0.08
+alert_gameover_time = 0.3
+game_over_time = 0.5
+
+[node name="Passenger" parent="Passengers" index="2" instance=ExtResource("2_alxmu")]
+position = Vector2(1480, 565)
+animation_resource = ExtResource("3_aahcs")
+movement_speed = 500.0
+movement_path_length = Array[Vector2]([Vector2(3700, 230), Vector2(5000, 920)])
+pause_time_limit = 1.0
+alert_question_time = 0.08
+alert_exclamation_time = 0.08
+alert_gameover_time = 0.2
+game_over_time = 0.3
+
+[node name="Passenger6" parent="Passengers" index="3" instance=ExtResource("2_alxmu")]
+position = Vector2(1480, 565)
+animation_resource = ExtResource("3_aahcs")
+movement_speed = 500.0
+movement_path_length = Array[Vector2]([Vector2(3700, 230), Vector2(5000, 920)])
+pause_time_limit = 1.0
+alert_question_time = 0.08
+alert_exclamation_time = 0.08
+alert_gameover_time = 0.2
+game_over_time = 0.3
+
+[node name="Passenger4" parent="Passengers" index="4" instance=ExtResource("2_alxmu")]
 position = Vector2(1480, 565)
 animation_resource = ExtResource("4_aa7wo")
 movement_speed = 100.0
 movement_path_length = Array[Vector2]([Vector2(3700, 230), Vector2(5000, 920)])
-
-[node name="Passenger4" parent="Passengers" index="6" instance=ExtResource("2_alxmu")]
-position = Vector2(1480, 565)
-animation_resource = ExtResource("4_aa7wo")
-movement_speed = 100.0
-movement_path_length = Array[Vector2]([Vector2(3700, 230), Vector2(5000, 920)])
+alert_question_time = 0.1
+alert_exclamation_time = 0.1
+alert_gameover_time = 0.2
+game_over_time = 1.2
 
 [node name="CollisionShape2D" parent="EndOfCarriage" index="0"]
 disabled = true
