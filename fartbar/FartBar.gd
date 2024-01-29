@@ -1,4 +1,4 @@
-extends ProgressBar
+extends TextureProgressBar
 
 @export var keep_increase = 1.0
 @export var const_descrease = 0.25
@@ -6,9 +6,6 @@ extends ProgressBar
 @export var full_release_increase = 0.5
 @export var player : Player = null
 
-
-#@export var limit = 10
-#var value_hist = []
 var keep_last_pressed
 var full_release = false
 signal do_fart
@@ -27,8 +24,6 @@ func _input(event):
 		value += keep_increase
 		# add the timestamp of the last pressed key
 		keep_last_pressed = Time.get_ticks_msec()
-		## Clamp the value to not exceed the maximum
-		#value = min(value, value_hist[0])
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -48,30 +43,19 @@ func _process(delta):
 		value += release_increase
 		do_fart.emit()
 		player.animation_name = "walking_fart"
-		#if $Decrease.playing:
-			#$Decrease.stop()
 		if not $FullReleaseIncrease.playing:
 			$FullReleaseIncrease.play()
 			if full_release_sound_position:
 				$FullReleaseIncrease.seek(full_release_sound_position)
-		#if not $Fart.playing:
-			#$Fart.play()
-		#value_hist = [value]
 	else:
 		if $FullReleaseIncrease.playing:
 			full_release_sound_position = $FullReleaseIncrease.get_playback_position()
 			$FullReleaseIncrease.stop()
-		#if $Fart.playing:
-			#$Fart.stop()
 		if not $Decrease.playing:
 			$Decrease.play()
-		#if not $Decrease1.playing and not $Decrease2.playing:
-			#[$Decrease1, $Decrease2][randi_range(0, 1)].play()
 		# reduce the progress bar value by 0.1 every frame
 		value -= const_descrease
 		player.animation_name = "walking"
-		#value_hist.append(value)
-		#value_hist = value_hist.slice(max(value_hist.size()-limit, 0), value_hist.size())
 
 	if value == 0:
 		full_release = true

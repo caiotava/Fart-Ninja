@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b654dxpourjnt" path="res://train/seat_one_space.tscn" id="3_km4of"]
 [ext_resource type="SpriteFrames" uid="uid://r8jtnpq54hjq" path="res://passengers/animations/train-ward.tres" id="4_aa7wo"]
 
-[node name="Carriage" instance=ExtResource("1_5nida")]
+[node name="Carriage2" instance=ExtResource("1_5nida")]
 
 [node name="CollisionShape2D" parent="CarriageBackground/Collisions/WallLeftDoor" index="0"]
 disabled = true
@@ -17,23 +17,23 @@ disabled = true
 
 [node name="Seat" parent="Seats/Top" index="0" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_pyhcb")]
 position = Vector2(556, 248)
-available_spaces = [NodePath(""), NodePath("")]
+available_spaces = [null, null]
 
 [node name="Seat2" parent="Seats/Top" index="1" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_pyhcb")]
 position = Vector2(819, 248)
-available_spaces = [NodePath(""), NodePath("")]
+available_spaces = [null, null]
 
 [node name="Seat3" parent="Seats/Top" index="2" node_paths=PackedStringArray("available_spaces") instance=ExtResource("3_km4of")]
 position = Vector2(1064, 247)
-available_spaces = [NodePath("")]
+available_spaces = [null]
 
 [node name="Seat4" parent="Seats/Top" index="3" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_pyhcb")]
 position = Vector2(1307, 240)
-available_spaces = [NodePath(""), NodePath("")]
+available_spaces = [null, null]
 
 [node name="Seat5" parent="Seats/Top" index="4" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_pyhcb")]
 position = Vector2(1570, 240)
-available_spaces = [NodePath(""), NodePath("")]
+available_spaces = [null, null]
 
 [node name="Passenger" parent="Passengers" index="1" instance=ExtResource("2_alxmu")]
 position = Vector2(1480, 565)

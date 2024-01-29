@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://buk37ynfb02ld"]
+[gd_scene load_steps=5 format=3 uid="uid://21gcofahdjn1"]
 
 [ext_resource type="PackedScene" uid="uid://c7aw5vl1g0kgp" path="res://train/carriage_base.tscn" id="1_y5qeq"]
 [ext_resource type="Script" path="res://train/carriages/Bathroom.gd" id="2_4fhxn"]

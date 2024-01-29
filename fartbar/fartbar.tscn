@@ -1,16 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://c75bqy1boy2j0"]
+[gd_scene load_steps=5 format=3 uid="uid://c75bqy1boy2j0"]
 
 [ext_resource type="Script" path="res://fartbar/FartBar.gd" id="1_ba7i4"]
+[ext_resource type="Texture2D" uid="uid://cuu7rjlbskkug" path="res://fartbar/gfx/fartbar.png" id="1_hpnn3"]
+[ext_resource type="Texture2D" uid="uid://dq4jqnfcirrw7" path="res://fartbar/gfx/fartbar-over.png" id="2_cscel"]
+[ext_resource type="Texture2D" uid="uid://74je80l4p5ok" path="res://fartbar/gfx/fartbar-progress.png" id="2_vxyhu"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jy6n"]
-bg_color = Color(0.819608, 0.529412, 0.00392157, 1)
-
-[node name="FartBar" type="ProgressBar"]
-offset_left = -419.0
-offset_top = -181.0
-offset_right = -338.0
-offset_bottom = 710.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/fill = SubResource("StyleBoxFlat_2jy6n")
-value = 100.0
+[node name="FartBar" type="TextureProgressBar"]
+offset_left = -461.0
+offset_top = 1.0
+offset_right = -258.0
+offset_bottom = 613.0
+value = 60.0
+fill_mode = 2
+texture_under = ExtResource("1_hpnn3")
+texture_over = ExtResource("2_cscel")
+texture_progress = ExtResource("2_vxyhu")
+texture_progress_offset = Vector2(0, 145)
 script = ExtResource("1_ba7i4")
+const_descrease = 0.8
+release_increase = 1.0

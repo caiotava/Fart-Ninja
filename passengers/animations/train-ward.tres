@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://bn1ivb25xwjrg"]
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://r8jtnpq54hjq"]
 
 [ext_resource type="Texture2D" uid="uid://ceugm60706wup" path="res://passengers/gfx/train-ward-walk-anim.png" id="1_sgl4l"]
 [ext_resource type="Texture2D" uid="uid://dsubrifkq4xc4" path="res://passengers/gfx/passenger-01.png" id="2_5rg20"]
