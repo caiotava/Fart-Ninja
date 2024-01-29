@@ -1,5 +1,7 @@
 extends TextureProgressBar
 
+signal do_fart
+
 @export var keep_increase = 1.0
 @export var const_descrease = 0.25
 @export var release_increase = 0.1
@@ -8,7 +10,6 @@ extends TextureProgressBar
 
 var keep_last_pressed
 var full_release = false
-signal do_fart
 var full_release_sound_position;
 
 # Called when the node enters the scene tree for the first time.

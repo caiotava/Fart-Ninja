@@ -52,7 +52,5 @@ offset_bottom = -103.0
 
 [editable path="Carriage"]
 [editable path="Carriage/Player"]
-[editable path="Carriage/Carriages/Carriage03"]
-[editable path="Carriage/LastCarriage"]
 [editable path="GameOver"]
 [editable path="Victory"]

@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://b72pnfygc1o0l"]
+
+[ext_resource type="Texture2D" uid="uid://cignifkxdf4vu" path="res://train/gfx/train-atlas.png" id="1_7it2m"]
+[ext_resource type="Script" path="res://train/wheels.gd" id="1_dw6kd"]
+
+[sub_resource type="Animation" id="Animation_tjccy"]
+resource_name = "movement"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeelLeft:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(192, 80.5), Vector2(192, 60)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeelMiddle:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(601, 80.5), Vector2(601, 70)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WeelRight:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1035, 80.5), Vector2(1035, 60)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2n0qv"]
+_data = {
+"movement": SubResource("Animation_tjccy")
+}
+
+[node name="Wheels" type="Node2D"]
+script = ExtResource("1_dw6kd")
+
+[node name="WeelLeft" type="Sprite2D" parent="."]
+position = Vector2(192, 80.5)
+texture = ExtResource("1_7it2m")
+region_enabled = true
+region_rect = Rect2(259, 3943, 384, 161)
+
+[node name="WeelMiddle" type="Sprite2D" parent="."]
+position = Vector2(601, 80.5)
+texture = ExtResource("1_7it2m")
+region_enabled = true
+region_rect = Rect2(785, 3943, 337, 103)
+
+[node name="WeelRight" type="Sprite2D" parent="."]
+position = Vector2(1035, 80.5)
+texture = ExtResource("1_7it2m")
+region_enabled = true
+region_rect = Rect2(1246, 3943, 384, 161)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2n0qv")
+}

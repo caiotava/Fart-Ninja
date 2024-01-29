@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://c7aw5vl1g0kgp"]
+[gd_scene load_steps=12 format=3 uid="uid://c7aw5vl1g0kgp"]
 
 [ext_resource type="Texture2D" uid="uid://cignifkxdf4vu" path="res://train/gfx/train-atlas.png" id="1_o0fjw"]
 [ext_resource type="Script" path="res://train/carriage_base.gd" id="1_yo87l"]
+[ext_resource type="PackedScene" uid="uid://b72pnfygc1o0l" path="res://train/wheels.tscn" id="3_7vfdf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1ye8"]
 size = Vector2(53, 311)
@@ -175,25 +176,8 @@ position = Vector2(0, -80)
 position = Vector2(1733, 442)
 shape = SubResource("RectangleShape2D_dkwjk")
 
-[node name="Wheel" type="Node2D" parent="CarriageBackground"]
-
-[node name="WeelLeft" type="Sprite2D" parent="CarriageBackground/Wheel"]
-position = Vector2(594, 953)
-texture = ExtResource("1_o0fjw")
-region_enabled = true
-region_rect = Rect2(259, 3943, 384, 161)
-
-[node name="WeelMiddle" type="Sprite2D" parent="CarriageBackground/Wheel"]
-position = Vector2(1003, 953)
-texture = ExtResource("1_o0fjw")
-region_enabled = true
-region_rect = Rect2(785, 3943, 337, 103)
-
-[node name="WeelRight" type="Sprite2D" parent="CarriageBackground/Wheel"]
-position = Vector2(1437, 953)
-texture = ExtResource("1_o0fjw")
-region_enabled = true
-region_rect = Rect2(1246, 3943, 384, 161)
+[node name="Wheel" parent="CarriageBackground" instance=ExtResource("3_7vfdf")]
+position = Vector2(398, 892)
 
 [node name="Windows" type="Node2D" parent="CarriageBackground"]
 z_index = 20
