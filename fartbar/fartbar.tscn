@@ -6,10 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://74je80l4p5ok" path="res://fartbar/gfx/fartbar-progress.png" id="2_vxyhu"]
 
 [node name="FartBar" type="TextureProgressBar"]
-offset_left = -461.0
-offset_top = 1.0
-offset_right = -258.0
-offset_bottom = 613.0
+anchors_preset = -1
+anchor_top = 0.217
+anchor_right = 0.075
+anchor_bottom = 0.67
+offset_top = -0.360016
+offset_right = 40.0
+offset_bottom = 122.4
+grow_vertical = 2
+scale = Vector2(0.78, 0.78)
 value = 60.0
 fill_mode = 2
 texture_under = ExtResource("1_hpnn3")

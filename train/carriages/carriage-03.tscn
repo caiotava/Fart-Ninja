@@ -35,6 +35,29 @@ available_spaces = [null, null]
 position = Vector2(1570, 240)
 available_spaces = [null, null]
 
+[node name="Seat" parent="Seats/Bottom" index="0" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_pyhcb")]
+z_index = 1
+position = Vector2(556, 616)
+available_spaces = [NodePath(""), NodePath("")]
+
+[node name="Seat2" parent="Seats/Bottom" index="1" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_pyhcb")]
+z_index = 1
+position = Vector2(819, 616)
+available_spaces = [NodePath(""), NodePath("")]
+
+[node name="Seat5" parent="Seats/Bottom" index="2" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_pyhcb")]
+z_index = 1
+position = Vector2(1355, 616)
+available_spaces = [NodePath(""), NodePath("")]
+
+[node name="Seat3" parent="Seats/Bottom" index="3" node_paths=PackedStringArray("available_spaces") instance=ExtResource("3_km4of")]
+position = Vector2(1624, 683)
+available_spaces = [null]
+
+[node name="Seat4" parent="Seats/Bottom" index="4" node_paths=PackedStringArray("available_spaces") instance=ExtResource("3_km4of")]
+position = Vector2(1088, 683)
+available_spaces = [null]
+
 [node name="Passenger" parent="Passengers" index="1" instance=ExtResource("2_alxmu")]
 position = Vector2(1480, 565)
 animation_resource = ExtResource("3_aahcs")

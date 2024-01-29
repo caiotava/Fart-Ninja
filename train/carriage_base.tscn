@@ -75,7 +75,7 @@ region_rect = Rect2(159, 3545, 549, 294)
 [node name="WallBottomMiddle" type="Sprite2D" parent="CarriageBackground"]
 visibility_layer = 2
 z_index = 20
-position = Vector2(797, 655)
+position = Vector2(798, 655)
 texture = ExtResource("1_o0fjw")
 centered = false
 region_enabled = true
@@ -192,7 +192,7 @@ region_rect = Rect2(628, 570, 372, 150)
 
 [node name="WindowMiddle" type="Sprite2D" parent="CarriageBackground/Windows"]
 z_index = 20
-position = Vector2(999.5, 779)
+position = Vector2(1001.5, 779)
 scale = Vector2(1.04032, 1.04)
 texture = ExtResource("1_o0fjw")
 region_enabled = true

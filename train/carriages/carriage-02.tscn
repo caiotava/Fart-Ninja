@@ -23,8 +23,16 @@ position = Vector2(819, 248)
 available_spaces = [null, null]
 
 [node name="Seat3" parent="Seats/Top" index="2" node_paths=PackedStringArray("available_spaces") instance=ExtResource("3_8rjta")]
-position = Vector2(1064, 247)
+position = Vector2(1077, 247)
 available_spaces = [null]
+
+[node name="Seat4" parent="Seats/Top" index="3" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_631d8")]
+position = Vector2(1323, 248)
+available_spaces = [null, null]
+
+[node name="Seat5" parent="Seats/Top" index="4" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_631d8")]
+position = Vector2(1579, 248)
+available_spaces = [null, null]
 
 [node name="Seat" parent="Seats/Bottom" index="0" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_631d8")]
 z_index = 1
@@ -35,6 +43,20 @@ available_spaces = [null, null]
 z_index = 1
 position = Vector2(819, 616)
 available_spaces = [null, null]
+
+[node name="Seat3" parent="Seats/Bottom" index="2" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_631d8")]
+z_index = 1
+position = Vector2(1075, 616)
+available_spaces = [null, null]
+
+[node name="Seat5" parent="Seats/Bottom" index="3" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_631d8")]
+z_index = 1
+position = Vector2(1323, 616)
+available_spaces = [null, null]
+
+[node name="Seat4" parent="Seats/Bottom" index="4" node_paths=PackedStringArray("available_spaces") instance=ExtResource("3_8rjta")]
+position = Vector2(1578, 683)
+available_spaces = [null]
 
 [node name="NavigationRegion2D" parent="Passengers" index="0"]
 metadata/_edit_lock_ = true

@@ -21,8 +21,16 @@ available_spaces = [NodePath("../../../Passengers/Passenger"), NodePath("../../.
 position = Vector2(819, 248)
 available_spaces = [NodePath("../../../Passengers/Passenger7"), NodePath("../../../Passengers/Passenger8")]
 
-[node name="Seat3" parent="Seats/Top" index="2" node_paths=PackedStringArray("available_spaces") instance=ExtResource("3_1ngh5")]
-position = Vector2(1064, 247)
+[node name="Seat4" parent="Seats/Top" index="2" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_6llfd")]
+position = Vector2(1084, 248)
+available_spaces = [NodePath("../../../Passengers/Passenger"), NodePath("../../../Passengers/Passenger2")]
+
+[node name="Seat5" parent="Seats/Top" index="3" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_6llfd")]
+position = Vector2(1347, 248)
+available_spaces = [NodePath("../../../Passengers/Passenger7"), NodePath("../../../Passengers/Passenger8")]
+
+[node name="Seat3" parent="Seats/Top" index="4" node_paths=PackedStringArray("available_spaces") instance=ExtResource("3_1ngh5")]
+position = Vector2(1624, 247)
 available_spaces = [NodePath("../../../Passengers/Passenger9")]
 
 [node name="Seat" parent="Seats/Bottom" index="0" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_6llfd")]
@@ -34,6 +42,19 @@ available_spaces = [NodePath("../../../Passengers/Passenger3"), NodePath("../../
 z_index = 1
 position = Vector2(819, 616)
 available_spaces = [NodePath("../../../Passengers/Passenger5"), NodePath("../../../Passengers/Passenger6")]
+
+[node name="Seat5" parent="Seats/Bottom" index="2" node_paths=PackedStringArray("available_spaces") instance=ExtResource("2_6llfd")]
+z_index = 1
+position = Vector2(1355, 616)
+available_spaces = [NodePath("../../../Passengers/Passenger5"), NodePath("../../../Passengers/Passenger6")]
+
+[node name="Seat3" parent="Seats/Bottom" index="3" node_paths=PackedStringArray("available_spaces") instance=ExtResource("3_1ngh5")]
+position = Vector2(1624, 683)
+available_spaces = [null]
+
+[node name="Seat4" parent="Seats/Bottom" index="4" node_paths=PackedStringArray("available_spaces") instance=ExtResource("3_1ngh5")]
+position = Vector2(1088, 683)
+available_spaces = [null]
 
 [node name="Passenger" parent="Passengers" index="0" instance=ExtResource("3_nl3fb")]
 position = Vector2(1580, 510)
