@@ -20,6 +20,7 @@ position = Vector2(51.75, 137)
 shape = SubResource("RectangleShape2D_ybncw")
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+vertices = PackedVector2Array(-3, 0, -2, 231, 101, 231, 100, 44, 45, 44, 45, -2)
 
 [node name="SpacesPositions" type="Node2D" parent="."]
 

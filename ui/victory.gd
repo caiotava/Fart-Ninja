@@ -1,6 +1,6 @@
 extends Control
 
-var sounds = [preload("res://audio/victory/train_cheering.wav")]
+var sounds = [preload("res://audio/victory/train_cheering.ogg")]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
