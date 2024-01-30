@@ -1,10 +1,10 @@
 extends Control
 
 var sounds = [
-	preload("res://audio/game_over/crowdpanic_hazmat.wav"),
-	preload("res://audio/game_over/emission_impossible.wav"),
-	preload("res://audio/game_over/fartepiano.wav"),
-	preload("res://audio/game_over/fart_ninja_fail.wav")
+	preload("res://audio/game_over/crowdpanic_hazmat.ogg"),
+	preload("res://audio/game_over/emission_impossible.ogg"),
+	preload("res://audio/game_over/fartepiano.ogg"),
+	preload("res://audio/game_over/fart_ninja_fail.ogg")
 ]
 
 var subtitles = [

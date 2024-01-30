@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://cewn1qljgnyyf" path="res://train/gfx/background-train-color.png" id="7_vrx33"]
 [ext_resource type="PackedScene" uid="uid://c75bqy1boy2j0" path="res://fartbar/fartbar.tscn" id="8_1o8v0"]
 [ext_resource type="Script" path="res://fart/Fart.gd" id="8_ujyyp"]
-[ext_resource type="AudioStream" uid="uid://dgfdwu2jqww06" path="res://audio/spy_soundtrack.wav" id="11_6welp"]
+[ext_resource type="AudioStream" uid="uid://banhyx4cd8syd" path="res://audio/balloon_rub_creak.ogg" id="10_0urgd"]
 [ext_resource type="AudioStream" uid="uid://7l411kjf3mjl" path="res://audio/balloon_pop.ogg" id="11_opkk2"]
-[ext_resource type="AudioStream" uid="uid://csxgbnokyrmeb" path="res://audio/balloon_rub_creak.mp3" id="12_2gwwf"]
+[ext_resource type="AudioStream" uid="uid://cksnejko14qin" path="res://audio/spy_soundtrack.ogg" id="11_qbowq"]
 [ext_resource type="PackedScene" uid="uid://bpd1lcpf2cr1o" path="res://train/carriages/carriage-01.tscn" id="12_eofpn"]
 [ext_resource type="Script" path="res://audio/Soundtrack.gd" id="12_x25r8"]
 [ext_resource type="PackedScene" uid="uid://ct6ajbmd56n20" path="res://train/carriages/carriage-02.tscn" id="13_mtb4j"]
@@ -131,11 +131,11 @@ stream = ExtResource("11_opkk2")
 volume_db = 5.0
 
 [node name="Decrease" type="AudioStreamPlayer2D" parent="UI/FartBar"]
-stream = ExtResource("12_2gwwf")
+stream = ExtResource("10_0urgd")
 volume_db = 5.0
 
 [node name="Soundtrack" type="AudioStreamPlayer2D" parent="UI"]
-stream = ExtResource("11_6welp")
+stream = ExtResource("11_qbowq")
 autoplay = true
 script = ExtResource("12_x25r8")
 
